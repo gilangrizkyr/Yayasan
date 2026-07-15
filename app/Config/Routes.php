@@ -16,3 +16,7 @@ $routes->get('program', 'Home::program');
 $routes->get('teachers', 'Home::teachers');
 $routes->get('how-to-apply', 'Home::howToApply');
 $routes->get('tuition-fee', 'Home::tuitionFee');
+$routes->get('alumni', 'Home::alumni');
+$routes->get('libraries', 'Home::libraries');
+$routes->get('campus-life', 'Home::campusLife');
+$routes->get('events', 'Home::events');

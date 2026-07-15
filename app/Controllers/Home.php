@@ -116,4 +116,24 @@ class Home extends BaseController
             'popular' => $posts
         ]);
     }
+
+    public function alumni(): string
+    {
+        return view('alumni');
+    }
+
+    public function libraries(): string
+    {
+        return view('libraries');
+    }
+
+    public function campusLife(): string
+    {
+        return view('campus-life');
+    }
+
+    public function events(): string
+    {
+        return view('events');
+    }
 }

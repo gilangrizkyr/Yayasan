@@ -15,7 +15,7 @@
                                         <div class="rs-footer-widget-contact-info">
                                             <div class="rs-footer-content-item">
                                                 <span>Telepon:</span>
-                                                <a href="tel:+990123456789">+62-711-000-0000</a>
+                                                <a href="tel:+627110000000">+62-711-000-0000</a>
                                             </div>
                                             <div class="rs-footer-content-item">
                                                 <span>Email:</span>
@@ -61,16 +61,16 @@
                                         <div class="rs-footer-widget-link has-theme-yellow">
                                             <ul>
                                                 <li>
-                                                    <a href="about.html">Tentang Yayasan</a>
+                                                    <a href="<?= base_url('about') ?>">Tentang Yayasan</a>
                                                 </li>
                                                 <li>
-                                                    <a href="alumni.html">Jaringan Alumni</a>
+                                                    <a href="<?= base_url('alumni') ?>">Jaringan Alumni</a>
                                                 </li>
                                                 <li>
-                                                    <a href="libraries.html">Perpustakaan</a>
+                                                    <a href="<?= base_url('libraries') ?>">Perpustakaan</a>
                                                 </li>
                                                 <li>
-                                                    <a href="campus-life.html">Kehidupan Sekolah</a>
+                                                    <a href="<?= base_url('campus-life') ?>">Kehidupan Sekolah</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -80,16 +80,16 @@
                                         <div class="rs-footer-widget-link has-theme-yellow">
                                             <ul>
                                                 <li>
-                                                    <a href="faculty.html">Tenaga Pengajar</a>
+                                                    <a href="<?= base_url('teachers') ?>">Tenaga Pengajar</a>
                                                 </li>
                                                 <li>
-                                                    <a href="program.html">Program Pendidikan</a>
+                                                    <a href="<?= base_url('program') ?>">Program Pendidikan</a>
                                                 </li>
                                                 <li>
-                                                    <a href="event.html">Agenda Kegiatan</a>
+                                                    <a href="<?= base_url('events') ?>">Agenda Kegiatan</a>
                                                 </li>
                                                 <li>
-                                                    <a href="how-to-apply.html">Cara Mendaftar</a>
+                                                    <a href="<?= base_url('how-to-apply') ?>">Cara Mendaftar</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -131,12 +131,12 @@
                                         <div class="rs-footer-copyright-left">
                                             <div class="rs-footer-copyright-item">
                                                 <div class="rs-footer-copyright-link">
-                                                    <a href="terms-conditions.html">Ketentuan & Perjanjian</a>
+                                                    <a href="#">Ketentuan & Perjanjian</a>
                                                 </div>
                                             </div>
                                             <div class="rs-footer-copyright-item">
                                                 <div class="rs-footer-copyright-link">
-                                                    <a href="privacy-policy.html">Kebijakan Privasi</a>
+                                                    <a href="#">Kebijakan Privasi</a>
                                                 </div>
                                             </div>
                                         </div>

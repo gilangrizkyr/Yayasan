@@ -16,10 +16,24 @@
                                     <li class="<?= uri_string() === "" ? "active" : "" ?>">
                                         <a href="<?= base_url() ?>">Beranda</a>
                                     </li>
-                                    <li class="<?= uri_string() === "about" ? "active" : "" ?>">
-                                        <a href="<?= base_url('about') ?>">Tentang Kami</a>
+                                    <li class="menu-item-has-children <?= in_array(uri_string(), ['about', 'alumni', 'libraries', 'campus-life']) ? 'active' : '' ?>">
+                                        <a href="#">Yayasan Kami</a>
+                                        <ul class="submenu">
+                                            <li class="<?= uri_string() === "about" ? "active" : "" ?>">
+                                                <a href="<?= base_url('about') ?>">Tentang Yayasan</a>
+                                            </li>
+                                            <li class="<?= uri_string() === "alumni" ? "active" : "" ?>">
+                                                <a href="<?= base_url('alumni') ?>">Jaringan Alumni</a>
+                                            </li>
+                                            <li class="<?= uri_string() === "libraries" ? "active" : "" ?>">
+                                                <a href="<?= base_url('libraries') ?>">Perpustakaan</a>
+                                            </li>
+                                            <li class="<?= uri_string() === "campus-life" ? "active" : "" ?>">
+                                                <a href="<?= base_url('campus-life') ?>">Kehidupan Sekolah</a>
+                                            </li>
+                                        </ul>
                                     </li>
-                                    <li class="menu-item-has-children <?= in_array(uri_string(), ['academics', 'program', 'teachers']) ? 'active' : '' ?>">
+                                    <li class="menu-item-has-children <?= in_array(uri_string(), ['academics', 'program', 'teachers', 'events']) ? 'active' : '' ?>">
                                         <a href="<?= base_url('academics') ?>">Akademik</a>
                                         <ul class="submenu">
                                             <li class="<?= uri_string() === "program" ? "active" : "" ?>">
@@ -27,6 +41,9 @@
                                             </li>
                                             <li class="<?= uri_string() === "teachers" ? "active" : "" ?>">
                                                 <a href="<?= base_url('teachers') ?>">Tenaga Pengajar</a>
+                                            </li>
+                                            <li class="<?= uri_string() === "events" ? "active" : "" ?>">
+                                                <a href="<?= base_url('events') ?>">Agenda Kegiatan</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -128,10 +145,24 @@
                                     <li class="<?= uri_string() === "" ? "active" : "" ?>">
                                         <a href="<?= base_url() ?>">Beranda</a>
                                     </li>
-                                    <li class="<?= uri_string() === "about" ? "active" : "" ?>">
-                                        <a href="<?= base_url('about') ?>">Tentang Kami</a>
+                                    <li class="menu-item-has-children <?= in_array(uri_string(), ['about', 'alumni', 'libraries', 'campus-life']) ? 'active' : '' ?>">
+                                        <a href="#">Yayasan Kami</a>
+                                        <ul class="submenu">
+                                            <li class="<?= uri_string() === "about" ? "active" : "" ?>">
+                                                <a href="<?= base_url('about') ?>">Tentang Yayasan</a>
+                                            </li>
+                                            <li class="<?= uri_string() === "alumni" ? "active" : "" ?>">
+                                                <a href="<?= base_url('alumni') ?>">Jaringan Alumni</a>
+                                            </li>
+                                            <li class="<?= uri_string() === "libraries" ? "active" : "" ?>">
+                                                <a href="<?= base_url('libraries') ?>">Perpustakaan</a>
+                                            </li>
+                                            <li class="<?= uri_string() === "campus-life" ? "active" : "" ?>">
+                                                <a href="<?= base_url('campus-life') ?>">Kehidupan Sekolah</a>
+                                            </li>
+                                        </ul>
                                     </li>
-                                    <li class="menu-item-has-children <?= in_array(uri_string(), ['academics', 'program', 'teachers']) ? 'active' : '' ?>">
+                                    <li class="menu-item-has-children <?= in_array(uri_string(), ['academics', 'program', 'teachers', 'events']) ? 'active' : '' ?>">
                                         <a href="<?= base_url('academics') ?>">Akademik</a>
                                         <ul class="submenu">
                                             <li class="<?= uri_string() === "program" ? "active" : "" ?>">
@@ -139,6 +170,9 @@
                                             </li>
                                             <li class="<?= uri_string() === "teachers" ? "active" : "" ?>">
                                                 <a href="<?= base_url('teachers') ?>">Tenaga Pengajar</a>
+                                            </li>
+                                            <li class="<?= uri_string() === "events" ? "active" : "" ?>">
+                                                <a href="<?= base_url('events') ?>">Agenda Kegiatan</a>
                                             </li>
                                         </ul>
                                     </li>
