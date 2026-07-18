@@ -20,8 +20,7 @@
                             </div>
                         </div>
                         <div class="offcanvas-about mb-30 d-none d-xl-block">
-                            <p>Selamat datang di Yayasan Khalifah Latif Cendaka, lembaga pendidikan terpadu yang berkomitmen mencetak generasi unggul, berakhlak mulia, dan berdaya saing global.
-                        </p>
+                            <p><?= esc(site_setting('about_intro')) ?></p>
                         </div>
                         <div class="offcanvas-gallery d-none d-xl-block">
                             <div class="offcanvas-gallery-thumb-wrapper">
@@ -63,7 +62,7 @@
                             </div>
                         </div>
                         <div class="offcanvas-contact mb-30">
-                            <h4 class="offcanvas-title-meta">Informasi Kontak</h4>
+                            <h4 class="offcanvas-title-meta"><?= lang_trans('contact') ?></h4>
                             <ul>
                                 <li class="d-flex gap-15">
                                     <div class="offcanvas-contact-icon">
@@ -73,7 +72,7 @@
                                         </svg>
                                     </div>
                                     <div class="offcanvas-contact-text">
-                                        <a href="#">Jl. Khalifah Latif No. 1, Kota Palembang, Sumatera Selatan</a>
+                                        <a href="#"><?= esc(site_setting('address')) ?></a>
                                     </div>
                                 </li>
                                 <li class="d-flex gap-15">
@@ -84,7 +83,7 @@
                                         </svg>
                                     </div>
                                     <div class="offcanvas-contact-text">
-                                        <a href="tel:+12346691234">+62-711-000-0000 </a>
+                                        <a href="tel:<?= esc(site_setting('phone')) ?>"><?= esc(site_setting('phone')) ?></a>
                                     </div>
                                 </li>
                                 <li class="d-flex gap-15">
@@ -95,31 +94,31 @@
                                         </svg>
                                     </div>
                                     <div class="offcanvas-contact-text">
-                                        <a href="mailto:info@khalifah-latif.sch.id">info@khalifah-latif.sch.id</a>
+                                        <a href="mailto:<?= esc(site_setting('email')) ?>"><?= esc(site_setting('email')) ?></a>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                         <div class="offcanvas-social">
-                            <h4 class="offcanvas-title-meta">Ikuti Kami</h4>
+                            <h4 class="offcanvas-title-meta"><?= lang_trans('back_to_home') ?></h4>
                             <ul>
                                 <li>
-                                    <a href="#">
+                                    <a href="<?= esc(site_setting('facebook')) ?>">
                                         <i class="ri-facebook-fill"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        <i class="ri-twitter-x-fill"></i>
+                                    <a href="<?= esc(site_setting('instagram')) ?>">
+                                        <i class="ri-instagram-fill"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="<?= esc(site_setting('youtube')) ?>">
                                         <i class="ri-youtube-fill"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="<?= esc(site_setting('linkedin')) ?>">
                                         <i class="ri-linkedin-box-fill"></i>
                                     </a>
                                 </li>

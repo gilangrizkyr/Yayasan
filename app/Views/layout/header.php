@@ -12,69 +12,74 @@
                         </div>
                         <div class="header-menu">
                             <nav id="mobile-menu" class="main-menu">
-                                                                <ul class="multipage-menu">
+                                <ul class="multipage-menu">
                                     <li class="<?= uri_string() === "" ? "active" : "" ?>">
-                                        <a href="<?= base_url() ?>">Beranda</a>
+                                        <a href="<?= base_url() ?>"><?= lang_trans('home') ?></a>
                                     </li>
                                     <li class="menu-item-has-children <?= in_array(uri_string(), ['about', 'alumni', 'libraries', 'campus-life']) ? 'active' : '' ?>">
-                                        <a href="#">Yayasan Kami</a>
+                                        <a href="#"><?= lang_trans('our_foundation') ?></a>
                                         <ul class="submenu">
                                             <li class="<?= uri_string() === "about" ? "active" : "" ?>">
-                                                <a href="<?= base_url('about') ?>">Tentang Yayasan</a>
+                                                <a href="<?= base_url('about') ?>"><?= lang_trans('about_us') ?></a>
                                             </li>
                                             <li class="<?= uri_string() === "alumni" ? "active" : "" ?>">
-                                                <a href="<?= base_url('alumni') ?>">Jaringan Alumni</a>
+                                                <a href="<?= base_url('alumni') ?>"><?= lang_trans('alumni') ?></a>
                                             </li>
                                             <li class="<?= uri_string() === "libraries" ? "active" : "" ?>">
-                                                <a href="<?= base_url('libraries') ?>">Perpustakaan</a>
+                                                <a href="<?= base_url('libraries') ?>"><?= lang_trans('library') ?></a>
                                             </li>
                                             <li class="<?= uri_string() === "campus-life" ? "active" : "" ?>">
-                                                <a href="<?= base_url('campus-life') ?>">Kehidupan Sekolah</a>
+                                                <a href="<?= base_url('campus-life') ?>"><?= lang_trans('campus_life') ?></a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="menu-item-has-children <?= in_array(uri_string(), ['academics', 'program', 'teachers', 'events']) ? 'active' : '' ?>">
-                                        <a href="<?= base_url('academics') ?>">Akademik</a>
+                                        <a href="<?= base_url('academics') ?>"><?= lang_trans('academics') ?></a>
                                         <ul class="submenu">
                                             <li class="<?= uri_string() === "program" ? "active" : "" ?>">
-                                                <a href="<?= base_url('program') ?>">Program Pendidikan</a>
+                                                <a href="<?= base_url('program') ?>"><?= lang_trans('programs') ?></a>
                                             </li>
                                             <li class="<?= uri_string() === "teachers" ? "active" : "" ?>">
-                                                <a href="<?= base_url('teachers') ?>">Tenaga Pengajar</a>
+                                                <a href="<?= base_url('teachers') ?>"><?= lang_trans('teachers') ?></a>
                                             </li>
                                             <li class="<?= uri_string() === "events" ? "active" : "" ?>">
-                                                <a href="<?= base_url('events') ?>">Agenda Kegiatan</a>
+                                                <a href="<?= base_url('events') ?>"><?= lang_trans('events') ?></a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="menu-item-has-children <?= in_array(uri_string(), ['admission', 'how-to-apply', 'tuition-fee']) ? 'active' : '' ?>">
-                                        <a href="<?= base_url('admission') ?>">Pendaftaran</a>
+                                        <a href="<?= base_url('admission') ?>"><?= lang_trans('admissions') ?></a>
                                         <ul class="submenu">
                                             <li class="<?= uri_string() === "admission" ? "active" : "" ?>">
-                                                <a href="<?= base_url('admission') ?>">Alur & Dokumen</a>
+                                                <a href="<?= base_url('admission') ?>"><?= lang_trans('process_docs') ?></a>
                                             </li>
                                             <li class="<?= uri_string() === "how-to-apply" ? "active" : "" ?>">
-                                                <a href="<?= base_url('how-to-apply') ?>">Cara Mendaftar</a>
+                                                <a href="<?= base_url('how-to-apply') ?>"><?= lang_trans('how_to_apply') ?></a>
                                             </li>
                                             <li class="<?= uri_string() === "tuition-fee" ? "active" : "" ?>">
-                                                <a href="<?= base_url('tuition-fee') ?>">Biaya Pendidikan</a>
+                                                <a href="<?= base_url('tuition-fee') ?>"><?= lang_trans('tuition_fees') ?></a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="<?= uri_string() === "gallery" ? "active" : "" ?>">
-                                        <a href="<?= base_url('gallery') ?>">Galeri</a>
+                                        <a href="<?= base_url('gallery') ?>"><?= lang_trans('gallery') ?></a>
                                     </li>
                                     <li class="<?= uri_string() === "blog" ? "active" : "" ?>">
-                                        <a href="<?= base_url('blog') ?>">Blog / Berita</a>
+                                        <a href="<?= base_url('blog') ?>"><?= lang_trans('blog') ?></a>
                                     </li>
                                     <li class="<?= uri_string() === "contact" ? "active" : "" ?>">
-                                        <a href="<?= base_url('contact') ?>">Kontak</a>
+                                        <a href="<?= base_url('contact') ?>"><?= lang_trans('contact') ?></a>
                                     </li>
                                 </ul>
                             </nav>
                         </div>
                         <div class="header-right">
                             <div class="header-icon-wrapper">
+                                <!-- Language Switcher -->
+                                <div class="lang-switcher me-3 d-none d-lg-flex align-items-center gap-1" style="z-index: 100;">
+                                    <a href="<?= base_url('lang/id') ?>" class="px-2 py-1 rounded text-uppercase fw-bold <?= (session()->get('lang') ?: 'id') === 'id' ? 'bg-warning text-dark' : 'text-white border border-light opacity-75' ?>" style="font-size: 11px; text-decoration: none; transition: all 0.3s;">ID</a>
+                                    <a href="<?= base_url('lang/en') ?>" class="px-2 py-1 rounded text-uppercase fw-bold <?= (session()->get('lang') ?: 'id') === 'en' ? 'bg-warning text-dark' : 'text-white border border-light opacity-75' ?>" style="font-size: 11px; text-decoration: none; transition: all 0.3s;">EN</a>
+                                </div>
                                 <!-- search area start -->
                                 <div class="header-search-wrapper">
                                     <div class="header-search-icon">
@@ -107,15 +112,15 @@
                             <div class="header-btn">
                                 <a class="rs-btn has-icon has-theme-yellow hover-white" href="<?= base_url('admission') ?>">
                                     <span class="btn-text-wrap">
-                                        <span class="text-default">Daftar Sekarang</span>
-                                        <span class="text-hover">Daftar Sekarang</span>
+                                        <span class="text-default"><?= lang_trans('apply_now') ?></span>
+                                        <span class="text-hover"><?= lang_trans('apply_now') ?></span>
                                     </span>
                                     <span class="icon-box">
                                         <svg class="icon-first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17">
                                             <path d="M10.2705 0C9.24524 0 8.41799 -1.11759e-08 7.76774 0.08775C7.09274 0.17775 6.52424 0.37275 6.07274 0.8235C5.67974 1.21725 5.48024 1.701 5.37599 2.2695C5.27474 2.82225 5.25524 3.498 5.25074 4.3095C5.24994 4.45868 5.30845 4.60207 5.41337 4.70813C5.5183 4.81418 5.66106 4.8742 5.81024 4.875C5.95942 4.8758 6.10282 4.8173 6.20887 4.71237C6.31492 4.60744 6.37494 4.46468 6.37574 4.3155C6.38024 3.49575 6.40124 2.9145 6.48224 2.47275C6.56099 2.04825 6.68624 1.8015 6.86849 1.61925C7.07624 1.4115 7.36799 1.2765 7.91849 1.20225C8.48474 1.1265 9.23549 1.125 10.3117 1.125H11.0617C12.1387 1.125 12.8895 1.1265 13.4557 1.20225C14.0062 1.2765 14.2972 1.41225 14.5057 1.61925C14.7142 1.82625 14.8477 2.118 14.922 2.66925C14.9985 3.23475 14.9992 3.98625 14.9992 5.0625V11.0625C14.9992 12.1388 14.9985 12.8902 14.922 13.4565C14.8477 14.007 14.7127 14.298 14.505 14.5057C14.2972 14.7135 14.0062 14.8485 13.4557 14.9227C12.8895 14.9985 12.1387 15 11.0617 15H10.3117C9.23549 15 8.48474 14.9985 7.91774 14.9227C7.36799 14.8485 7.07624 14.7127 6.86849 14.5057C6.68624 14.3235 6.56099 14.0767 6.48224 13.6522C6.40124 13.2105 6.38024 12.6293 6.37574 11.8095C6.37535 11.7356 6.36041 11.6626 6.33177 11.5945C6.30314 11.5264 6.26138 11.4646 6.20887 11.4126C6.15636 11.3607 6.09413 11.3196 6.02573 11.2917C5.95733 11.2638 5.88411 11.2496 5.81024 11.25C5.73637 11.2504 5.6633 11.2653 5.59521 11.294C5.52711 11.3226 5.46533 11.3644 5.41337 11.4169C5.36142 11.4694 5.32031 11.5316 5.29241 11.6C5.26451 11.6684 5.25035 11.7416 5.25074 11.8155C5.25524 12.627 5.27474 13.3028 5.37599 13.8555C5.48099 14.424 5.67974 14.9078 6.07349 15.3015C6.52424 15.753 7.09349 15.9465 7.76849 16.038C8.41799 16.125 9.24524 16.125 10.2705 16.125H11.103C12.129 16.125 12.9555 16.125 13.6057 16.0373C14.2807 15.9472 14.8492 15.7523 15.3007 15.3015C15.7522 14.85 15.9457 14.2815 16.0372 13.6065C16.1242 12.9563 16.1242 12.129 16.1242 11.1038V5.02125C16.1242 3.996 16.1242 3.16875 16.0372 2.5185C15.9465 1.8435 15.7522 1.275 15.3007 0.8235C14.8492 0.372 14.2807 0.1785 13.6057 0.08775C12.9555 -1.11759e-08 12.1282 0 11.103 0H10.2705Z"></path>
                                         </svg>
                                         <svg class="icon-second" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17">
-                                            <path d="M0.5625 7.4993C0.413316 7.4993 0.270242 7.55856 0.164752 7.66405C0.0592632 7.76954 0 7.91261 0 8.0618C0 8.21098 0.0592632 8.35406 0.164752 8.45954C0.270242 8.56503 0.413316 8.6243 0.5625 8.6243H9.54225L8.0715 9.8843C8.01536 9.93236 7.96924 9.99101 7.93576 10.0569C7.90229 10.1228 7.88212 10.1946 7.87641 10.2683C7.86488 10.4171 7.91293 10.5644 8.01 10.6778C8.10707 10.7912 8.2452 10.8614 8.39401 10.8729C8.54282 10.8844 8.69012 10.8364 8.8035 10.7393L11.4285 8.4893C11.4903 8.43649 11.5398 8.37093 11.5738 8.29713C11.6078 8.22334 11.6254 8.14305 11.6254 8.0618C11.6254 7.98055 11.6078 7.90026 11.6254 7.82646C11.6254 7.75266 11.7416 7.6343 11.7416 7.6343C11.7416 7.6343 8.8035 5.3843 8.8035 5.3843C8.69012 5.28723 8.54282 5.23917 8.39401 5.25071C8.2452 5.26224 8.10707 5.33242 8.01 5.4458C7.91293 5.55918 7.86488 5.70647 7.87641 5.85528C7.88794 6.00409 7.95812 6.14223 8.0715 6.2393L9.5415 7.4993H0.5625Z"></path>
+                                            <path d="M0.5625 7.4993C0.413316 7.4993 0.270242 7.55856 0.164752 7.66405C0.0592632 7.76954 0 7.91261 0 8.0618C0 8.21098 0.0592632 8.35406 0.164752 8.45954C0.270242 8.56503 0.413316 8.6243 0.5625 8.6243H9.54225L8.0715 9.8843C8.01536 9.93236 7.96924 9.99101 7.93576 10.0569C7.90229 10.1228 7.88212 10.1946 7.87641 10.2683C7.86488 10.4171 7.91293 10.5644 8.01 10.6778C8.10707 10.7912 8.2452 10.8614 8.39401 10.8729C8.54282 10.8844 8.69012 10.8364 8.8035 10.7393L11.4285 8.4893C11.4903 8.43649 11.5398 8.37093 11.5738 8.29713C11.6078 8.22334 11.6254 8.14305 11.6254 8.0618C11.6254 7.98055 11.6078 7.90026 11.6078 7.82646C11.6254 7.75266 11.7416 7.6343 11.7416 7.6343C11.7416 7.6343 8.8035 5.3843 8.8035 5.3843C8.69012 5.28723 8.54282 5.23917 8.39401 5.25071C8.2452 5.26224 8.10707 5.33242 8.01 5.4458C7.91293 5.55918 7.86488 5.70647 7.87641 5.85528C7.88794 6.00409 7.95812 6.14223 8.0715 6.2393L9.5415 7.4993H0.5625Z"></path>
                                         </svg>
                                     </span>
                                 </a>
@@ -141,69 +146,74 @@
                         </div>
                         <div class="header-menu">
                             <nav id="mobile-menu-two" class="main-menu">
-                                                                <ul class="multipage-menu">
+                                <ul class="multipage-menu">
                                     <li class="<?= uri_string() === "" ? "active" : "" ?>">
-                                        <a href="<?= base_url() ?>">Beranda</a>
+                                        <a href="<?= base_url() ?>"><?= lang_trans('home') ?></a>
                                     </li>
                                     <li class="menu-item-has-children <?= in_array(uri_string(), ['about', 'alumni', 'libraries', 'campus-life']) ? 'active' : '' ?>">
-                                        <a href="#">Yayasan Kami</a>
+                                        <a href="#"><?= lang_trans('our_foundation') ?></a>
                                         <ul class="submenu">
                                             <li class="<?= uri_string() === "about" ? "active" : "" ?>">
-                                                <a href="<?= base_url('about') ?>">Tentang Yayasan</a>
+                                                <a href="<?= base_url('about') ?>"><?= lang_trans('about_us') ?></a>
                                             </li>
                                             <li class="<?= uri_string() === "alumni" ? "active" : "" ?>">
-                                                <a href="<?= base_url('alumni') ?>">Jaringan Alumni</a>
+                                                <a href="<?= base_url('alumni') ?>"><?= lang_trans('alumni') ?></a>
                                             </li>
                                             <li class="<?= uri_string() === "libraries" ? "active" : "" ?>">
-                                                <a href="<?= base_url('libraries') ?>">Perpustakaan</a>
+                                                <a href="<?= base_url('libraries') ?>"><?= lang_trans('library') ?></a>
                                             </li>
                                             <li class="<?= uri_string() === "campus-life" ? "active" : "" ?>">
-                                                <a href="<?= base_url('campus-life') ?>">Kehidupan Sekolah</a>
+                                                <a href="<?= base_url('campus-life') ?>"><?= lang_trans('campus_life') ?></a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="menu-item-has-children <?= in_array(uri_string(), ['academics', 'program', 'teachers', 'events']) ? 'active' : '' ?>">
-                                        <a href="<?= base_url('academics') ?>">Akademik</a>
+                                        <a href="<?= base_url('academics') ?>"><?= lang_trans('academics') ?></a>
                                         <ul class="submenu">
                                             <li class="<?= uri_string() === "program" ? "active" : "" ?>">
-                                                <a href="<?= base_url('program') ?>">Program Pendidikan</a>
+                                                <a href="<?= base_url('program') ?>"><?= lang_trans('programs') ?></a>
                                             </li>
                                             <li class="<?= uri_string() === "teachers" ? "active" : "" ?>">
-                                                <a href="<?= base_url('teachers') ?>">Tenaga Pengajar</a>
+                                                <a href="<?= base_url('teachers') ?>"><?= lang_trans('teachers') ?></a>
                                             </li>
                                             <li class="<?= uri_string() === "events" ? "active" : "" ?>">
-                                                <a href="<?= base_url('events') ?>">Agenda Kegiatan</a>
+                                                <a href="<?= base_url('events') ?>"><?= lang_trans('events') ?></a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="menu-item-has-children <?= in_array(uri_string(), ['admission', 'how-to-apply', 'tuition-fee']) ? 'active' : '' ?>">
-                                        <a href="<?= base_url('admission') ?>">Pendaftaran</a>
+                                        <a href="<?= base_url('admission') ?>"><?= lang_trans('admissions') ?></a>
                                         <ul class="submenu">
                                             <li class="<?= uri_string() === "admission" ? "active" : "" ?>">
-                                                <a href="<?= base_url('admission') ?>">Alur & Dokumen</a>
+                                                <a href="<?= base_url('admission') ?>"><?= lang_trans('process_docs') ?></a>
                                             </li>
                                             <li class="<?= uri_string() === "how-to-apply" ? "active" : "" ?>">
-                                                <a href="<?= base_url('how-to-apply') ?>">Cara Mendaftar</a>
+                                                <a href="<?= base_url('how-to-apply') ?>"><?= lang_trans('how_to_apply') ?></a>
                                             </li>
                                             <li class="<?= uri_string() === "tuition-fee" ? "active" : "" ?>">
-                                                <a href="<?= base_url('tuition-fee') ?>">Biaya Pendidikan</a>
+                                                <a href="<?= base_url('tuition-fee') ?>"><?= lang_trans('tuition_fees') ?></a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="<?= uri_string() === "gallery" ? "active" : "" ?>">
-                                        <a href="<?= base_url('gallery') ?>">Galeri</a>
+                                        <a href="<?= base_url('gallery') ?>"><?= lang_trans('gallery') ?></a>
                                     </li>
                                     <li class="<?= uri_string() === "blog" ? "active" : "" ?>">
-                                        <a href="<?= base_url('blog') ?>">Blog / Berita</a>
+                                        <a href="<?= base_url('blog') ?>"><?= lang_trans('blog') ?></a>
                                     </li>
                                     <li class="<?= uri_string() === "contact" ? "active" : "" ?>">
-                                        <a href="<?= base_url('contact') ?>">Kontak</a>
+                                        <a href="<?= base_url('contact') ?>"><?= lang_trans('contact') ?></a>
                                     </li>
                                 </ul>
                             </nav>
                         </div>
                         <div class="header-right">
                             <div class="header-icon-wrapper">
+                                <!-- Language Switcher -->
+                                <div class="lang-switcher me-3 d-none d-lg-flex align-items-center gap-1" style="z-index: 100;">
+                                    <a href="<?= base_url('lang/id') ?>" class="px-2 py-1 rounded text-uppercase fw-bold <?= (session()->get('lang') ?: 'id') === 'id' ? 'bg-warning text-dark' : 'text-white border border-light opacity-75' ?>" style="font-size: 11px; text-decoration: none; transition: all 0.3s;">ID</a>
+                                    <a href="<?= base_url('lang/en') ?>" class="px-2 py-1 rounded text-uppercase fw-bold <?= (session()->get('lang') ?: 'id') === 'en' ? 'bg-warning text-dark' : 'text-white border border-light opacity-75' ?>" style="font-size: 11px; text-decoration: none; transition: all 0.3s;">EN</a>
+                                </div>
                                 <!-- search area start -->
                                 <div class="header-search-wrapper">
                                     <div class="header-search-icon">
@@ -236,8 +246,8 @@
                             <div class="header-btn">
                                 <a class="rs-btn has-icon has-theme-yellow hover-white" href="<?= base_url('admission') ?>">
                                     <span class="btn-text-wrap">
-                                        <span class="text-default">Daftar Sekarang</span>
-                                        <span class="text-hover">Daftar Sekarang</span>
+                                        <span class="text-default"><?= lang_trans('apply_now') ?></span>
+                                        <span class="text-hover"><?= lang_trans('apply_now') ?></span>
                                     </span>
                                     <span class="icon-box">
                                         <svg class="icon-first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17">

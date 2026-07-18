@@ -6,13 +6,18 @@
 
 <?= $this->section('content') ?>
             <!-- banner area start -->
+            <?php 
+            $bannerImage = (!empty($banners) && $banners[0]->image) ? base_url($banners[0]->image) : base_url('images/bangunan/gedung.webp');
+            $bannerTitle = !empty($banners) ? lang_field($banners[0], 'title') : 'Yayasan Khalifah Latif Cendaka';
+            $bannerSubtitle = !empty($banners) ? lang_field($banners[0], 'subtitle') : 'Selamat Datang di';
+            ?>
             <section class="rs-banner-area rs-banner-one">
-                <div class="rs-banner-bg-thumb include-bg" data-background="<?= base_url() ?>images/bangunan/gedung.webp"></div>
+                <div class="rs-banner-bg-thumb include-bg" data-background="<?= $bannerImage ?>"></div>
                 <div class="container-fluid">
                     <div class="rs-banner-wrapper">
                         <div class="row">
                             <div class="col-xl-12">
-                                <h1 class="rs-banner-large-title wow fadeInDown" data-wow-delay="1.1s" data-wow-duration="1.3s">Khalifah Latif Cendaka</h1>
+                                <h1 class="rs-banner-large-title wow fadeInDown" data-wow-delay="1.1s" data-wow-duration="1.3s"><?= esc(site_setting('site_name')) ?></h1>
                             </div>
                         </div>
                         <div class="row">
@@ -20,12 +25,12 @@
                                 <div class="rs-banner-content-wrapper">
                                     <div class="rs-banner-sec-wrapper">
                                         <span class="rs-banner-subtitle wow fadeInUp" data-wow-delay=".5s" data-wow-duration=".7s">
-                                            <img src="<?= base_url() ?>images/shape/cap-shape.svg" alt="image">Selamat Datang di </span>
-                                        <h1 class="rs-banner-title wow fadeInUp" data-wow-delay=".7s" data-wow-duration=".9s"> Yayasan Khalifah Latif Cendaka
+                                            <img src="<?= base_url() ?>images/shape/cap-shape.svg" alt="image"><?= esc($bannerSubtitle) ?></span>
+                                        <h1 class="rs-banner-title wow fadeInUp" data-wow-delay=".7s" data-wow-duration=".9s"> <?= esc($bannerTitle) ?>
                                     </h1>
                                     </div>
                                     <div class="rs-banner-video-wrapper wow fadeInRight" data-wow-delay=".9s" data-wow-duration="1.1s">
-                                        <a href="https://www.youtube.com/watch?v=go7QYaQR494" class="rs-play-btn popup-video is-large has-transparent-btn has-blur hover-yellow">
+                                        <a href="<?= esc(site_setting('youtube') ?: 'https://www.youtube.com/watch?v=go7QYaQR494') ?>" class="rs-play-btn popup-video is-large has-transparent-btn has-blur hover-yellow">
                                             <i class="ri-play-large-fill"></i>
                                         </a>
                                         <h2 class="rs-video-title">Tur Yayasan</h2>
@@ -54,10 +59,9 @@
                                         <path d="M5.21484 12.8949V16.6564C5.21484 16.6564 8.82175 15.1537 12.0198 15.1537C15.2178 15.1537 18.8255 16.6564 18.8255 16.6564V12.8424C18.8255 12.8424 15.3844 11.0225 11.9665 11.0225C8.55018 11.021 5.21484 12.8949 5.21484 12.8949Z"></path>
                                         <path d="M22.6467 11.9993L24 11.2716L22.6467 10.5222V10.1666C22.6467 10.1666 23.0278 8.23413 20.862 9.24464C20.7517 9.30465 20.6924 9.36542 20.6684 9.42468L11.7367 4.47119L0 11.1884L4.43211 13.2019V12.5485C4.43211 12.5485 8.15079 10.4607 11.9625 10.4607C15.7734 10.4607 19.6092 12.4899 19.6092 12.4899V13.631L22.0563 12.3167V17.6377H21.2416V19.529L22.3248 18.7803L23.5274 19.529V17.637H22.6467V11.9993ZM22.0555 9.83803V10.1944L21.3413 9.79827C21.6017 9.62573 22.0555 9.38642 22.0555 9.83803ZM21.814 11.9251C21.737 11.9279 21.6603 11.9152 21.5883 11.8877C21.5164 11.8602 21.4507 11.8185 21.3952 11.7651C21.3398 11.7117 21.2956 11.6476 21.2655 11.5768C21.2353 11.5059 21.2198 11.4297 21.2197 11.3527C21.2197 11.2757 21.2351 11.1994 21.2652 11.1285C21.2953 11.0576 21.3393 10.9935 21.3947 10.94C21.4501 10.8865 21.5157 10.8447 21.5876 10.8172C21.6595 10.7896 21.7362 10.7768 21.8132 10.7795C21.9615 10.7848 22.102 10.8474 22.2051 10.9542C22.3082 11.0609 22.3659 11.2035 22.366 11.3519C22.3661 11.5003 22.3086 11.643 22.2056 11.7499C22.1027 11.8568 21.9623 11.9196 21.814 11.9251Z"></path>
                                     </svg>
-                                    Program & Studi
-                     
+                                    <?= lang_trans('programs') ?>
                                 </span>
-                                <h2 class="section-title rs-split-text-enable split-in-left has-theme-blue">Akademik & Program
+                                <h2 class="section-title rs-split-text-enable split-in-left has-theme-blue"><?= lang_trans('academics') ?> & <?= lang_trans('programs') ?>
                             </h2>
                             </div>
                         </div>
@@ -77,8 +81,8 @@
                                         </svg>
                                     </div>
                                     <div class="rs-program-content">
-                                        <h5 class="rs-program-title">Program Pendidikan Dasar</h5>
-                                        <p class="rs-program-desc">Program SD/MI unggulan dengan kurikulum nasional berpadukan nilai Islam.</p>
+                                        <h5 class="rs-program-title"><?= service('request')->getLocale() == 'id' ? 'Pendidikan Dasar & Anak Usia Dini' : 'Primary & Early Childhood Education' ?></h5>
+                                        <p class="rs-program-desc"><?= service('request')->getLocale() == 'id' ? 'Membina motorik, sosialisasi, dan adab Islami sejak dini hingga sekolah dasar.' : 'Nurturing motor skills, socialization, and Islamic manners from early childhood to elementary school.' ?></p>
                                         <div class="rs-accordion-item">
                                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                 <span class="open-icon">
@@ -88,7 +92,7 @@
                                                 </span>
                                                 <span class="close-icon">
                                                     <svg class="e-font-icon-svg e-fas-chevron-up" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path>
+                                                        <path d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544-9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path>
                                                     </svg>
                                                 </span>
                                             </button>
@@ -97,8 +101,8 @@
                                                     <div class="rs-program-list">
                                                         <ul>
                                                             <li>
-                                                                <a href="program-details.html">
-                                                                    Sarjana Hukum Pidana 
+                                                                <a href="<?= base_url('program') ?>">
+                                                                    PAUD & TK Islam Terpadu
                                                                     <span class="arrow-icon">
                                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 14">
                                                                             <path d="M11.5908 13.8593H10.5176C10.3122 10.089 12.6466 8.11151 13.8261 7.53333H0V6.37722H13.8261C10.9952 4.82655 10.2975 1.82452 10.5191 0H11.5819C11.1221 4.49988 15.8553 6.37148 17.8797 6.37722V7.52259C12.0065 8.19889 11.3576 12.4215 11.5908 13.8593Z"></path>
@@ -107,18 +111,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="program-details.html">
-                                                                    Magister Hukum Internasional 
-                                                                    <span class="arrow-icon">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 14">
-                                                                            <path d="M11.5908 13.8593H10.5176C10.3122 10.089 12.6466 8.11151 13.8261 7.53333H0V6.37722H13.8261C10.9952 4.82655 10.2975 1.82452 10.5191 0H11.5819C11.1221 4.49988 15.8553 6.37148 17.8797 6.37722V7.52259C12.0065 8.19889 11.3576 12.4215 11.5908 13.8593Z"></path>
-                                                                        </svg>
-                                                                    </span>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="program-details.html">
-                                                                    Sarjana Hukum Internasional 
+                                                                <a href="<?= base_url('program') ?>">
+                                                                    SD Islam Terpadu (SDIT)
                                                                     <span class="arrow-icon">
                                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 14">
                                                                             <path d="M11.5908 13.8593H10.5176C10.3122 10.089 12.6466 8.11151 13.8261 7.53333H0V6.37722H13.8261C10.9952 4.82655 10.2975 1.82452 10.5191 0H11.5819C11.1221 4.49988 15.8553 6.37148 17.8797 6.37722V7.52259C12.0065 8.19889 11.3576 12.4215 11.5908 13.8593Z"></path>
@@ -147,8 +141,8 @@
                                         </svg>
                                     </div>
                                     <div class="rs-program-content">
-                                        <h5 class="rs-program-title">Program Pendidikan Menengah</h5>
-                                        <p class="rs-program-desc">Program Pendidikan Menengah berkomitmen untuk memajukan pendidikan karakter.</p>
+                                        <h5 class="rs-program-title"><?= service('request')->getLocale() == 'id' ? 'Pendidikan Menengah Pertama' : 'Junior Secondary Education' ?></h5>
+                                        <p class="rs-program-desc"><?= service('request')->getLocale() == 'id' ? 'Pengembangan karakter kepemimpinan, tahfidz Al-Qur\'an, dan sains terapan.' : 'Development of leadership character, Al-Qur\'an tahfidz, and applied sciences.' ?></p>
                                         <div class="rs-accordion-item">
                                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                                                 <span class="open-icon">
@@ -158,7 +152,7 @@
                                                 </span>
                                                 <span class="close-icon">
                                                     <svg class="e-font-icon-svg e-fas-chevron-up" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path>
+                                                        <path d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544-9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path>
                                                     </svg>
                                                 </span>
                                             </button>
@@ -167,28 +161,8 @@
                                                     <div class="rs-program-list">
                                                         <ul>
                                                             <li>
-                                                                <a href="program-details.html">
-                                                                    Sarjana Fisika 
-                                                                    <span class="arrow-icon">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 14">
-                                                                            <path d="M11.5908 13.8593H10.5176C10.3122 10.089 12.6466 8.11151 13.8261 7.53333H0V6.37722H13.8261C10.9952 4.82655 10.2975 1.82452 10.5191 0H11.5819C11.1221 4.49988 15.8553 6.37148 17.8797 6.37722V7.52259C12.0065 8.19889 11.3576 12.4215 11.5908 13.8593Z"></path>
-                                                                        </svg>
-                                                                    </span>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="program-details.html">
-                                                                    Magister Matematika 
-                                                                    <span class="arrow-icon">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 14">
-                                                                            <path d="M11.5908 13.8593H10.5176C10.3122 10.089 12.6466 8.11151 13.8261 7.53333H0V6.37722H13.8261C10.9952 4.82655 10.2975 1.82452 10.5191 0H11.5819C11.1221 4.49988 15.8553 6.37148 17.8797 6.37722V7.52259C12.0065 8.19889 11.3576 12.4215 11.5908 13.8593Z"></path>
-                                                                        </svg>
-                                                                    </span>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="program-details.html">
-                                                                    Sarjana Matematika 
+                                                                <a href="<?= base_url('program') ?>">
+                                                                    SMP Islam Terpadu (SMPIT)
                                                                     <span class="arrow-icon">
                                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 14">
                                                                             <path d="M11.5908 13.8593H10.5176C10.3122 10.089 12.6466 8.11151 13.8261 7.53333H0V6.37722H13.8261C10.9952 4.82655 10.2975 1.82452 10.5191 0H11.5819C11.1221 4.49988 15.8553 6.37148 17.8797 6.37722V7.52259C12.0065 8.19889 11.3576 12.4215 11.5908 13.8593Z"></path>
@@ -220,8 +194,8 @@
                                         </svg>
                                     </div>
                                     <div class="rs-program-content">
-                                        <h5 class="rs-program-title">Program Pendidikan Atas</h5>
-                                        <p class="rs-program-desc">Program Pendidikan Atas didedikasikan untuk mempersiapkan siswa menuju perguruan tinggi.</p>
+                                        <h5 class="rs-program-title"><?= service('request')->getLocale() == 'id' ? 'Pendidikan Menengah Atas' : 'Senior Secondary Education' ?></h5>
+                                        <p class="rs-program-desc"><?= service('request')->getLocale() == 'id' ? 'Persiapan perguruan tinggi nasional & internasional, riset mandiri, dan tahfidz.' : 'University preparation, independent research, and Al-Qur\'an tahfidz.' ?></p>
                                         <div class="rs-accordion-item">
                                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
                                                 <span class="open-icon">
@@ -231,7 +205,7 @@
                                                 </span>
                                                 <span class="close-icon">
                                                     <svg class="e-font-icon-svg e-fas-chevron-up" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path>
+                                                        <path d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544-9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path>
                                                     </svg>
                                                 </span>
                                             </button>
@@ -240,28 +214,8 @@
                                                     <div class="rs-program-list">
                                                         <ul>
                                                             <li>
-                                                                <a href="program-details.html">
-                                                                    Sarjana Teknik Mesin 
-                                                                    <span class="arrow-icon">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 14">
-                                                                            <path d="M11.5908 13.8593H10.5176C10.3122 10.089 12.6466 8.11151 13.8261 7.53333H0V6.37722H13.8261C10.9952 4.82655 10.2975 1.82452 10.5191 0H11.5819C11.1221 4.49988 15.8553 6.37148 17.8797 6.37722V7.52259C12.0065 8.19889 11.3576 12.4215 11.5908 13.8593Z"></path>
-                                                                        </svg>
-                                                                    </span>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="program-details.html">
-                                                                    Magister Ilmu Komputer 
-                                                                    <span class="arrow-icon">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 14">
-                                                                            <path d="M11.5908 13.8593H10.5176C10.3122 10.089 12.6466 8.11151 13.8261 7.53333H0V6.37722H13.8261C10.9952 4.82655 10.2975 1.82452 10.5191 0H11.5819C11.1221 4.49988 15.8553 6.37148 17.8797 6.37722V7.52259C12.0065 8.19889 11.3576 12.4215 11.5908 13.8593Z"></path>
-                                                                        </svg>
-                                                                    </span>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="program-details.html">
-                                                                    Sarjana Ilmu Komputer 
+                                                                <a href="<?= base_url('program') ?>">
+                                                                    SMA Islam Terpadu (SMAIT)
                                                                     <span class="arrow-icon">
                                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 14">
                                                                             <path d="M11.5908 13.8593H10.5176C10.3122 10.089 12.6466 8.11151 13.8261 7.53333H0V6.37722H13.8261C10.9952 4.82655 10.2975 1.82452 10.5191 0H11.5819C11.1221 4.49988 15.8553 6.37148 17.8797 6.37722V7.52259C12.0065 8.19889 11.3576 12.4215 11.5908 13.8593Z"></path>
@@ -446,135 +400,40 @@
                                                 
                                                     </h5>
                                                     <div class="rs-notice-item-wrapper">
-                                                        <div class="rs-notice-item">
-                                                            <h6 class="rs-notice-title text-blue">Sumber belajar digital baru tersedia</h6>
-                                                            <div class="rs-notice-content">
-                                                                <div class="rs-notice-meta">
-                                                                    <span class="rs-notice-date">
-                                                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                            <g clip-path="url(#clip0_5621_24)">
-                                                                                <path d="M12.3594 1.09375H11.7031V0H10.6094V1.09375H3.39062V0H2.29688V1.09375H1.64062C0.735984 1.09375 0 1.82973 0 2.73438V12.3594C0 13.264 0.735984 14 1.64062 14H12.3594C13.264 14 14 13.264 14 12.3594V2.73438C14 1.82973 13.264 1.09375 12.3594 1.09375ZM12.9062 12.3594C12.9062 12.6609 12.6609 12.9062 12.3594 12.9062H1.64062C1.33908 12.9062 1.09375 12.6609 1.09375 12.3594V5.14062H12.9062V12.3594ZM12.9062 4.04688H1.09375V2.73438C1.09375 2.43283 1.33908 2.1875 1.64062 2.1875H2.29688V3.28125H3.39062V2.1875H10.6094V3.28125H11.7031V2.1875H12.3594C12.6609 2.1875 12.9062 2.43283 12.9062 2.73438V4.04688Z" fill="#4C4C4C"/>
-                                                                                <path d="M3.17188 6.28906H2.07812V7.38281H3.17188V6.28906Z" fill="#4C4C4C"/>
-                                                                                <path d="M5.35938 6.28906H4.26562V7.38281H5.35938V6.28906Z" fill="#4C4C4C"/>
-                                                                                <path d="M7.54688 6.28906H6.45312V7.38281H7.54688V6.28906Z" fill="#4C4C4C"/>
-                                                                                <path d="M9.73438 6.28906H8.64062V7.38281H9.73438V6.28906Z" fill="#4C4C4C"/>
-                                                                                <path d="M11.9219 6.28906H10.8281V7.38281H11.9219V6.28906Z" fill="#4C4C4C"/>
-                                                                                <path d="M3.17188 8.47656H2.07812V9.57031H3.17188V8.47656Z" fill="#4C4C4C"/>
-                                                                                <path d="M5.35938 8.47656H4.26562V9.57031H5.35938V8.47656Z" fill="#4C4C4C"/>
-                                                                                <path d="M7.54688 8.47656H6.45312V9.57031H7.54688V8.47656Z" fill="#4C4C4C"/>
-                                                                                <path d="M9.73438 8.47656H8.64062V9.57031H9.73438V8.47656Z" fill="#4C4C4C"/>
-                                                                                <path d="M3.17188 10.6641H2.07812V11.7578H3.17188V10.6641Z" fill="#4C4C4C"/>
-                                                                                <path d="M5.35938 10.6641H4.26562V11.7578H5.35938V10.6641Z" fill="#4C4C4C"/>
-                                                                                <path d="M7.54688 10.6641H6.45312V11.7578H7.54688V10.6641Z" fill="#4C4C4C"/>
-                                                                                <path d="M9.73438 10.6641H8.64062V11.7578H9.73438V10.6641Z" fill="#4C4C4C"/>
-                                                                                <path d="M11.9219 8.47656H10.8281V9.57031H11.9219V8.47656Z" fill="#4C4C4C"/>
-                                                                            </g>
-                                                                            <defs>
-                                                                                <clipPath id="clip0_5621_24">
-                                                                                    <rect width="14" height="14" fill="white"/>
-                                                                                </clipPath>
-                                                                            </defs>
-                                                                        </svg>
-                                                                        1 Desember 2025 
-                                                                    </span>
-                                                                    <span class="rs-notice-id">UBD/REG/MED/0002/IKJFJ/03</span>
+                                                        <?php if (!empty($announcements)): ?>
+                                                            <?php foreach ($announcements as $ann): ?>
+                                                                <div class="rs-notice-item">
+                                                                    <h6 class="rs-notice-title text-blue"><?= esc(lang_field($ann, 'title')) ?></h6>
+                                                                    <div class="rs-notice-content">
+                                                                        <div class="rs-notice-meta">
+                                                                            <span class="rs-notice-date">
+                                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                    <g clip-path="url(#clip0_5621_24)">
+                                                                                        <path d="M12.3594 1.09375H11.7031V0H10.6094V1.09375H3.39062V0H2.29688V1.09375H1.64062C0.735984 1.09375 0 1.82973 0 2.73438V12.3594C0 13.264 0.735984 14 1.64062 14H12.3594C13.264 14 14 13.264 14 12.3594V2.73438C14 1.82973 13.264 1.09375 12.3594 1.09375ZM12.9062 12.3594C12.9062 12.6609 12.6609 12.9062 12.3594 12.9062H1.64062C1.33908 12.9062 1.09375 12.6609 1.09375 12.3594V5.14062H12.9062V12.3594ZM12.9062 4.04688H1.09375V2.73438C1.09375 2.43283 1.33908 2.1875 1.64062 2.1875H2.29688V3.28125H3.39062V2.1875H10.6094V3.28125H11.7031V2.1875H12.3594C12.6609 2.1875 12.9062 2.43283 12.9062 2.73438V4.04688Z" fill="#4C4C4C"/>
+                                                                                    </g>
+                                                                                </svg>
+                                                                                <?= date('d M Y', strtotime($ann->date)) ?>
+                                                                            </span>
+                                                                        </div>
+                                                                        <?php if (isset($ann->attachment) && $ann->attachment != NULL): ?>
+                                                                            <?php $fileUrl = base_url(str_replace('public/', '', $ann->attachment)); ?>
+                                                                            <?php
+                                                                                ?>
+                                                                            <div class="rs-notice-link">
+                                                                                <a href="<?= $fileUrl ?>" download>
+                                                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path d="M13.6306 8.65779V4.87288C13.6306 4.76456 13.5806 4.66444 13.5098 4.58526L9.26635 0.129258C9.18709 0.0459374 9.07455 0 8.96205 0H2.23421C0.992107 0 0 1.01289 0 2.25507V14.9771C0 16.2193 0.992107 17.2156 2.23418 17.2156H7.54483C8.54932 18.8829 10.3752 20 12.4551 20C15.6147 20 18.195 17.4322 18.195 14.2684C18.1993 11.5048 16.215 9.19553 13.6306 8.65783V8.65779ZM9.37897 1.4632L12.2259 4.46019H10.3793C9.82908 4.46019 9.37893 4.00589 9.37893 3.4557L9.37897 1.4632ZM2.23418 16.3818C1.45476 16.3818 0.833748 15.7565 0.833748 14.9771V2.25507C0.833748 1.4714 1.45476 0.833748 2.23418 0.833748H8.54522V3.45562C8.54522 4.46851 9.36643 5.2939 10.3793 5.2939H12.7969V8.54936C12.6719 8.54522 12.5719 8.53268 12.4635 8.53268C11.0087 8.53268 9.67068 9.09131 8.66194 9.9667H3.36808C3.13874 9.9667 2.95121 10.1542 2.95121 10.3834C2.95121 10.6128 3.13871 10.8003 3.36808 10.8003H7.88663C7.59061 11.2172 7.34463 11.634 7.15303 12.0926H3.36804C3.13871 12.0926 2.95117 12.2801 2.95117 12.5094C2.95117 12.7386 3.13867 12.9263 3.36804 12.9263H6.88198C6.77776 13.3432 6.72358 13.8058 6.72358 14.2685C6.72358 15.0187 6.86944 15.7608 7.13206 16.3861H2.23418V16.3818ZM12.4594 19.1705C9.75826 19.1705 7.56147 16.9737 7.56147 14.2726C7.56147 11.5715 9.75404 9.37467 12.4594 9.37467C15.1646 9.37467 17.3572 11.5715 17.3572 14.2726C17.3572 16.9737 15.1605 19.1705 12.4594 19.1705Z"></path>
+                                                                                        <path d="M3.36805 8.71188H7.59059C7.81992 8.71188 8.00746 8.52423 8.00746 8.29501C8.00746 8.06571 7.81996 7.87817 7.59059 7.87817H3.36805C3.13871 7.87817 2.95117 8.06567 2.95117 8.29501C2.95117 8.52423 3.13867 8.71188 3.36805 8.71188ZM14.5935 14.1849L12.8804 16.0315V11.4797C12.8804 11.2504 12.6927 11.0628 12.4635 11.0628C12.2342 11.0628 12.0466 11.2503 12.0466 11.4797V16.0315L10.3209 14.1849C10.1625 14.0183 9.89574 14.0058 9.72898 14.1642C9.56219 14.3225 9.54969 14.5852 9.7082 14.7519L12.1467 17.3738C12.2259 17.4572 12.3342 17.50
+                                                                                    </svg>
+                                                                                </a>
+                                                                            </div>
+                                                                        <?php endif; ?>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="rs-notice-link">
-                                                                    <a href="notice/document.pdf" download>
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                                            <path d="M13.6306 8.65779V4.87288C13.6306 4.76456 13.5806 4.66444 13.5098 4.58526L9.26635 0.129258C9.18709 0.0459374 9.07455 0 8.96205 0H2.23421C0.992107 0 0 1.01289 0 2.25507V14.9771C0 16.2193 0.992107 17.2156 2.23418 17.2156H7.54483C8.54932 18.8829 10.3752 20 12.4551 20C15.6147 20 18.195 17.4322 18.195 14.2684C18.1993 11.5048 16.215 9.19553 13.6306 8.65783V8.65779ZM9.37897 1.4632L12.2259 4.46019H10.3793C9.82908 4.46019 9.37893 4.00589 9.37893 3.4557L9.37897 1.4632ZM2.23418 16.3818C1.45476 16.3818 0.833748 15.7565 0.833748 14.9771V2.25507C0.833748 1.4714 1.45476 0.833748 2.23418 0.833748H8.54522V3.45562C8.54522 4.46851 9.36643 5.2939 10.3793 5.2939H12.7969V8.54936C12.6719 8.54522 12.5719 8.53268 12.4635 8.53268C11.0087 8.53268 9.67068 9.09131 8.66194 9.9667H3.36808C3.13874 9.9667 2.95121 10.1542 2.95121 10.3834C2.95121 10.6128 3.13871 10.8003 3.36808 10.8003H7.88663C7.59061 11.2172 7.34463 11.634 7.15303 12.0926H3.36804C3.13871 12.0926 2.95117 12.2801 2.95117 12.5094C2.95117 12.7386 3.13867 12.9263 3.36804 12.9263H6.88198C6.77776 13.3432 6.72358 13.8058 6.72358 14.2685C6.72358 15.0187 6.86944 15.7608 7.13206 16.3861H2.23418V16.3818ZM12.4594 19.1705C9.75826 19.1705 7.56147 16.9737 7.56147 14.2726C7.56147 11.5715 9.75404 9.37467 12.4594 9.37467C15.1646 9.37467 17.3572 11.5715 17.3572 14.2726C17.3572 16.9737 15.1605 19.1705 12.4594 19.1705Z"></path>
-                                                                            <path d="M3.36805 8.71188H7.59059C7.81992 8.71188 8.00746 8.52423 8.00746 8.29501C8.00746 8.06571 7.81996 7.87817 7.59059 7.87817H3.36805C3.13871 7.87817 2.95117 8.06567 2.95117 8.29501C2.95117 8.52423 3.13867 8.71188 3.36805 8.71188ZM14.5935 14.1849L12.8804 16.0315V11.4797C12.8804 11.2504 12.6927 11.0628 12.4635 11.0628C12.2342 11.0628 12.0466 11.2503 12.0466 11.4797V16.0315L10.3209 14.1849C10.1625 14.0183 9.89574 14.0058 9.72898 14.1642C9.56219 14.3225 9.54969 14.5852 9.7082 14.7519L12.1467 17.3738C12.2259 17.4572 12.3342 17.5072 12.451 17.5072C12.5677 17.5072 12.676 17.4572 12.7552 17.3738L15.198 14.752C15.3564 14.5852 15.348 14.3184 15.1812 14.1642C15.0104 14.0058 14.752 14.0183 14.5935 14.1849Z"></path>
-                                                                        </svg>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="rs-notice-item">
-                                                            <h6 class="rs-notice-title text-blue">Konferensi Pendidikan Nasional</h6>
-                                                            <div class="rs-notice-content">
-                                                                <div class="rs-notice-meta">
-                                                                    <span class="rs-notice-date">
-                                                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                            <g clip-path="url(#clip0_5621_24)">
-                                                                                <path d="M12.3594 1.09375H11.7031V0H10.6094V1.09375H3.39062V0H2.29688V1.09375H1.64062C0.735984 1.09375 0 1.82973 0 2.73438V12.3594C0 13.264 0.735984 14 1.64062 14H12.3594C13.264 14 14 13.264 14 12.3594V2.73438C14 1.82973 13.264 1.09375 12.3594 1.09375ZM12.9062 12.3594C12.9062 12.6609 12.6609 12.9062 12.3594 12.9062H1.64062C1.33908 12.9062 1.09375 12.6609 1.09375 12.3594V5.14062H12.9062V12.3594ZM12.9062 4.04688H1.09375V2.73438C1.09375 2.43283 1.33908 2.1875 1.64062 2.1875H2.29688V3.28125H3.39062V2.1875H10.6094V3.28125H11.7031V2.1875H12.3594C12.6609 2.1875 12.9062 2.43283 12.9062 2.73438V4.04688Z" fill="#4C4C4C"/>
-                                                                                <path d="M3.17188 6.28906H2.07812V7.38281H3.17188V6.28906Z" fill="#4C4C4C"/>
-                                                                                <path d="M5.35938 6.28906H4.26562V7.38281H5.35938V6.28906Z" fill="#4C4C4C"/>
-                                                                                <path d="M7.54688 6.28906H6.45312V7.38281H7.54688V6.28906Z" fill="#4C4C4C"/>
-                                                                                <path d="M9.73438 6.28906H8.64062V7.38281H9.73438V6.28906Z" fill="#4C4C4C"/>
-                                                                                <path d="M11.9219 6.28906H10.8281V7.38281H11.9219V6.28906Z" fill="#4C4C4C"/>
-                                                                                <path d="M3.17188 8.47656H2.07812V9.57031H3.17188V8.47656Z" fill="#4C4C4C"/>
-                                                                                <path d="M5.35938 8.47656H4.26562V9.57031H5.35938V8.47656Z" fill="#4C4C4C"/>
-                                                                                <path d="M7.54688 8.47656H6.45312V9.57031H7.54688V8.47656Z" fill="#4C4C4C"/>
-                                                                                <path d="M9.73438 8.47656H8.64062V9.57031H9.73438V8.47656Z" fill="#4C4C4C"/>
-                                                                                <path d="M3.17188 10.6641H2.07812V11.7578H3.17188V10.6641Z" fill="#4C4C4C"/>
-                                                                                <path d="M5.35938 10.6641H4.26562V11.7578H5.35938V10.6641Z" fill="#4C4C4C"/>
-                                                                                <path d="M7.54688 10.6641H6.45312V11.7578H7.54688V10.6641Z" fill="#4C4C4C"/>
-                                                                                <path d="M9.73438 10.6641H8.64062V11.7578H9.73438V10.6641Z" fill="#4C4C4C"/>
-                                                                                <path d="M11.9219 8.47656H10.8281V9.57031H11.9219V8.47656Z" fill="#4C4C4C"/>
-                                                                            </g>
-                                                                            <defs>
-                                                                                <clipPath id="clip0_5621_242">
-                                                                                    <rect width="14" height="14" fill="white"/>
-                                                                                </clipPath>
-                                                                            </defs>
-                                                                        </svg>
-                                                                        1 Desember 2025 
-                                                                    </span>
-                                                                    <span class="rs-notice-id">UBD/REG/MED/0002/IKJFJ/02</span>
-                                                                </div>
-                                                                <div class="rs-notice-link">
-                                                                    <a href="notice/document.pdf" download>
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                                            <path d="M13.6306 8.65779V4.87288C13.6306 4.76456 13.5806 4.66444 13.5098 4.58526L9.26635 0.129258C9.18709 0.0459374 9.07455 0 8.96205 0H2.23421C0.992107 0 0 1.01289 0 2.25507V14.9771C0 16.2193 0.992107 17.2156 2.23418 17.2156H7.54483C8.54932 18.8829 10.3752 20 12.4551 20C15.6147 20 18.195 17.4322 18.195 14.2684C18.1993 11.5048 16.215 9.19553 13.6306 8.65783V8.65779ZM9.37897 1.4632L12.2259 4.46019H10.3793C9.82908 4.46019 9.37893 4.00589 9.37893 3.4557L9.37897 1.4632ZM2.23418 16.3818C1.45476 16.3818 0.833748 15.7565 0.833748 14.9771V2.25507C0.833748 1.4714 1.45476 0.833748 2.23418 0.833748H8.54522V3.45562C8.54522 4.46851 9.36643 5.2939 10.3793 5.2939H12.7969V8.54936C12.6719 8.54522 12.5719 8.53268 12.4635 8.53268C11.0087 8.53268 9.67068 9.09131 8.66194 9.9667H3.36808C3.13874 9.9667 2.95121 10.1542 2.95121 10.3834C2.95121 10.6128 3.13871 10.8003 3.36808 10.8003H7.88663C7.59061 11.2172 7.34463 11.634 7.15303 12.0926H3.36804C3.13871 12.0926 2.95117 12.2801 2.95117 12.5094C2.95117 12.7386 3.13867 12.9263 3.36804 12.9263H6.88198C6.77776 13.3432 6.72358 13.8058 6.72358 14.2685C6.72358 15.0187 6.86944 15.7608 7.13206 16.3861H2.23418V16.3818ZM12.4594 19.1705C9.75826 19.1705 7.56147 16.9737 7.56147 14.2726C7.56147 11.5715 9.75404 9.37467 12.4594 9.37467C15.1646 9.37467 17.3572 11.5715 17.3572 14.2726C17.3572 16.9737 15.1605 19.1705 12.4594 19.1705Z"></path>
-                                                                            <path d="M3.36805 8.71188H7.59059C7.81992 8.71188 8.00746 8.52423 8.00746 8.29501C8.00746 8.06571 7.81996 7.87817 7.59059 7.87817H3.36805C3.13871 7.87817 2.95117 8.06567 2.95117 8.29501C2.95117 8.52423 3.13867 8.71188 3.36805 8.71188ZM14.5935 14.1849L12.8804 16.0315V11.4797C12.8804 11.2504 12.6927 11.0628 12.4635 11.0628C12.2342 11.0628 12.0466 11.2503 12.0466 11.4797V16.0315L10.3209 14.1849C10.1625 14.0183 9.89574 14.0058 9.72898 14.1642C9.56219 14.3225 9.54969 14.5852 9.7082 14.7519L12.1467 17.3738C12.2259 17.4572 12.3342 17.5072 12.451 17.5072C12.5677 17.5072 12.676 17.4572 12.7552 17.3738L15.198 14.752C15.3564 14.5852 15.348 14.3184 15.1812 14.1642C15.0104 14.0058 14.752 14.0183 14.5935 14.1849Z"></path>
-                                                                        </svg>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="rs-notice-item">
-                                                            <h6 class="rs-notice-title text-blue">Jadwal Ujian Semester</h6>
-                                                            <div class="rs-notice-content">
-                                                                <div class="rs-notice-meta">
-                                                                    <span class="rs-notice-date">
-                                                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                            <g clip-path="url(#clip0_5621_24)">
-                                                                                <path d="M12.3594 1.09375H11.7031V0H10.6094V1.09375H3.39062V0H2.29688V1.09375H1.64062C0.735984 1.09375 0 1.82973 0 2.73438V12.3594C0 13.264 0.735984 14 1.64062 14H12.3594C13.264 14 14 13.264 14 12.3594V2.73438C14 1.82973 13.264 1.09375 12.3594 1.09375ZM12.9062 12.3594C12.9062 12.6609 12.6609 12.9062 12.3594 12.9062H1.64062C1.33908 12.9062 1.09375 12.6609 1.09375 12.3594V5.14062H12.9062V12.3594ZM12.9062 4.04688H1.09375V2.73438C1.09375 2.43283 1.33908 2.1875 1.64062 2.1875H2.29688V3.28125H3.39062V2.1875H10.6094V3.28125H11.7031V2.1875H12.3594C12.6609 2.1875 12.9062 2.43283 12.9062 2.73438V4.04688Z" fill="#4C4C4C"/>
-                                                                                <path d="M3.17188 6.28906H2.07812V7.38281H3.17188V6.28906Z" fill="#4C4C4C"/>
-                                                                                <path d="M5.35938 6.28906H4.26562V7.38281H5.35938V6.28906Z" fill="#4C4C4C"/>
-                                                                                <path d="M7.54688 6.28906H6.45312V7.38281H7.54688V6.28906Z" fill="#4C4C4C"/>
-                                                                                <path d="M9.73438 6.28906H8.64062V7.38281H9.73438V6.28906Z" fill="#4C4C4C"/>
-                                                                                <path d="M11.9219 6.28906H10.8281V7.38281H11.9219V6.28906Z" fill="#4C4C4C"/>
-                                                                                <path d="M3.17188 8.47656H2.07812V9.57031H3.17188V8.47656Z" fill="#4C4C4C"/>
-                                                                                <path d="M5.35938 8.47656H4.26562V9.57031H5.35938V8.47656Z" fill="#4C4C4C"/>
-                                                                                <path d="M7.54688 8.47656H6.45312V9.57031H7.54688V8.47656Z" fill="#4C4C4C"/>
-                                                                                <path d="M9.73438 8.47656H8.64062V9.57031H9.73438V8.47656Z" fill="#4C4C4C"/>
-                                                                                <path d="M3.17188 10.6641H2.07812V11.7578H3.17188V10.6641Z" fill="#4C4C4C"/>
-                                                                                <path d="M5.35938 10.6641H4.26562V11.7578H5.35938V10.6641Z" fill="#4C4C4C"/>
-                                                                                <path d="M7.54688 10.6641H6.45312V11.7578H7.54688V10.6641Z" fill="#4C4C4C"/>
-                                                                                <path d="M9.73438 10.6641H8.64062V11.7578H9.73438V10.6641Z" fill="#4C4C4C"/>
-                                                                                <path d="M11.9219 8.47656H10.8281V9.57031H11.9219V8.47656Z" fill="#4C4C4C"/>
-                                                                            </g>
-                                                                            <defs>
-                                                                                <clipPath id="clip0_5621_243">
-                                                                                    <rect width="14" height="14" fill="white"/>
-                                                                                </clipPath>
-                                                                            </defs>
-                                                                        </svg>
-                                                                        1 Desember 2025 
-                                                                    </span>
-                                                                    <span class="rs-notice-id">UBD/REG/MED/0002/IKJFJ/01</span>
-                                                                </div>
-                                                                <div class="rs-notice-link">
-                                                                    <a href="notice/document.pdf" download>
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                                            <path d="M13.6306 8.65779V4.87288C13.6306 4.76456 13.5806 4.66444 13.5098 4.58526L9.26635 0.129258C9.18709 0.0459374 9.07455 0 8.96205 0H2.23421C0.992107 0 0 1.01289 0 2.25507V14.9771C0 16.2193 0.992107 17.2156 2.23418 17.2156H7.54483C8.54932 18.8829 10.3752 20 12.4551 20C15.6147 20 18.195 17.4322 18.195 14.2684C18.1993 11.5048 16.215 9.19553 13.6306 8.65783V8.65779ZM9.37897 1.4632L12.2259 4.46019H10.3793C9.82908 4.46019 9.37893 4.00589 9.37893 3.4557L9.37897 1.4632ZM2.23418 16.3818C1.45476 16.3818 0.833748 15.7565 0.833748 14.9771V2.25507C0.833748 1.4714 1.45476 0.833748 2.23418 0.833748H8.54522V3.45562C8.54522 4.46851 9.36643 5.2939 10.3793 5.2939H12.7969V8.54936C12.6719 8.54522 12.5719 8.53268 12.4635 8.53268C11.0087 8.53268 9.67068 9.09131 8.66194 9.9667H3.36808C3.13874 9.9667 2.95121 10.1542 2.95121 10.3834C2.95121 10.6128 3.13871 10.8003 3.36808 10.8003H7.88663C7.59061 11.2172 7.34463 11.634 7.15303 12.0926H3.36804C3.13871 12.0926 2.95117 12.2801 2.95117 12.5094C2.95117 12.7386 3.13867 12.9263 3.36804 12.9263H6.88198C6.77776 13.3432 6.72358 13.8058 6.72358 14.2685C6.72358 15.0187 6.86944 15.7608 7.13206 16.3861H2.23418V16.3818ZM12.4594 19.1705C9.75826 19.1705 7.56147 16.9737 7.56147 14.2726C7.56147 11.5715 9.75404 9.37467 12.4594 9.37467C15.1646 9.37467 17.3572 11.5715 17.3572 14.2726C17.3572 16.9737 15.1605 19.1705 12.4594 19.1705Z"></path>
-                                                                            <path d="M3.36805 8.71188H7.59059C7.81992 8.71188 8.00746 8.52423 8.00746 8.29501C8.00746 8.06571 7.81996 7.87817 7.59059 7.87817H3.36805C3.13871 7.87817 2.95117 8.06567 2.95117 8.29501C2.95117 8.52423 3.13867 8.71188 3.36805 8.71188ZM14.5935 14.1849L12.8804 16.0315V11.4797C12.8804 11.2504 12.6927 11.0628 12.4635 11.0628C12.2342 11.0628 12.0466 11.2503 12.0466 11.4797V16.0315L10.3209 14.1849C10.1625 14.0183 9.89574 14.0058 9.72898 14.1642C9.56219 14.3225 9.54969 14.5852 9.7082 14.7519L12.1467 17.3738C12.2259 17.4572 12.3342 17.5072 12.451 17.5072C12.5677 17.5072 12.676 17.4572 12.7552 17.3738L15.198 14.752C15.3564 14.5852 15.348 14.3184 15.1812 14.1642C15.0104 14.0058 14.752 14.0183 14.5935 14.1849Z"></path>
-                                                                        </svg>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                            <?php endforeach; ?>
+                                                        <?php else: ?>
+                                                            <p class="text-muted"><?= lang_trans('no_announcements') ?></p>
+                                                        <?php endif; ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1139,130 +998,41 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="rs-event-wrapper">
-                                <div class="rs-event-item wow fadeIn" data-wow-delay=".3s" data-wow-duration="1s">
-                                    <div class="rs-event-shape">
-                                        <img src="<?= base_url() ?>images/shape/three-line-shape.svg" alt="">
-                                    </div>
-                                    <div class="rs-event-thumb">
-                                        <a href="event-details.html">
-                                            <img src="<?= base_url() ?>images/event/event-thumb-01.webp" alt="image">
-                                        </a>
-                                    </div>
-                                    <div class="rs-event-content">
-                                        <div class="rs-event-meta">
-                                            <span class="rs-event-meta-item">
-                                                <i class="ri-calendar-line"></i>
-                                                4 Agustus 2025
-                              
-                                            </span>
-                                            <span class="rs-event-meta-item">
-                                                <i class="ri-time-line"></i>
-                                                09:00 AM - 03:40 PM
-                              
-                                            </span>
+                                <?php if (!empty($events)): ?>
+                                    <?php foreach ($events as $idx => $ev): ?>
+                                        <div class="rs-event-item wow fadeIn" data-wow-delay=".<?= 3 + $idx ?>s" data-wow-duration="1s">
+                                            <div class="rs-event-shape">
+                                                <img src="<?= base_url() ?>images/shape/three-line-shape.svg" alt="">
+                                            </div>
+                                            <div class="rs-event-thumb">
+                                                <a href="<?= base_url('event') ?>">
+                                                    <img src="<?= (!empty($ev->image) && strpos($ev->image, 'http') === 0) ? $ev->image : base_url($ev->image ?? '') ?>" alt="image" style="height: 200px; object-fit: cover; width: 100%;">
+                                                </a>
+                                            </div>
+                                            <div class="rs-event-content">
+                                                <div class="rs-event-meta">
+                                                    <span class="rs-event-meta-item">
+                                                        <i class="ri-calendar-line"></i>
+                                                        <?= date('d M Y', strtotime($ev->date)) ?>
+                                                    </span>
+                                                    <span class="rs-event-meta-item">
+                                                        <i class="ri-time-line"></i>
+                                                        <?= esc($ev->time) ?>
+                                                    </span>
+                                                </div>
+                                                <h5 class="rs-event-title">
+                                                    <a href="<?= base_url('event') ?>"><?= esc(lang_field($ev, 'title')) ?></a>
+                                                </h5>
+                                                <span class="rs-event-meta-item">
+                                                    <i class="ri-map-2-line"></i>
+                                                    <?= esc(lang_field($ev, 'location')) ?>
+                                                </span>
+                                            </div>
                                         </div>
-                                        <h5 class="rs-event-title">
-                                            <a href="event-details.html">Keunggulan Akademik & Pengembangan Intelektual</a>
-                                        </h5>
-                                        <span class="rs-event-meta-item">
-                                            <i class="ri-map-2-line"></i>
-                                            Yayasan Khalifah Latif Cendaka 
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="rs-event-item wow fadeIn" data-wow-delay=".4s" data-wow-duration="1s">
-                                    <div class="rs-event-shape">
-                                        <img src="<?= base_url() ?>images/shape/three-line-shape.svg" alt="">
-                                    </div>
-                                    <div class="rs-event-thumb">
-                                        <a href="event-details.html">
-                                            <img src="<?= base_url() ?>images/event/event-thumb-02.webp" alt="image">
-                                        </a>
-                                    </div>
-                                    <div class="rs-event-content">
-                                        <div class="rs-event-meta">
-                                            <span class="rs-event-meta-item">
-                                                <i class="ri-calendar-line"></i>
-                                                4 Agustus 2025
-                              
-                                            </span>
-                                            <span class="rs-event-meta-item">
-                                                <i class="ri-time-line"></i>
-                                                09:00 AM - 03:40 PM
-                              
-                                            </span>
-                                        </div>
-                                        <h5 class="rs-event-title">
-                                            <a href="event-details.html">Innovative Penelitian & Riset & Scientific Advancement</a>
-                                        </h5>
-                                        <span class="rs-event-meta-item">
-                                            <i class="ri-map-2-line"></i>
-                                            Yayasan Khalifah Latif Cendaka 
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="rs-event-item wow fadeIn" data-wow-delay=".5s" data-wow-duration="1s">
-                                    <div class="rs-event-shape">
-                                        <img src="<?= base_url() ?>images/shape/three-line-shape.svg" alt="">
-                                    </div>
-                                    <div class="rs-event-thumb">
-                                        <a href="event-details.html">
-                                            <img src="<?= base_url() ?>images/event/event-thumb-03.webp" alt="image">
-                                        </a>
-                                    </div>
-                                    <div class="rs-event-content">
-                                        <div class="rs-event-meta">
-                                            <span class="rs-event-meta-item">
-                                                <i class="ri-calendar-line"></i>
-                                                4 Agustus 2025
-                              
-                                            </span>
-                                            <span class="rs-event-meta-item">
-                                                <i class="ri-time-line"></i>
-                                                09:00 AM - 03:40 PM
-                              
-                                            </span>
-                                        </div>
-                                        <h5 class="rs-event-title">
-                                            <a href="event-details.html">Transformasi Digital, Teknologi & Masa Depan</a>
-                                        </h5>
-                                        <span class="rs-event-meta-item">
-                                            <i class="ri-map-2-line"></i>
-                                            Yayasan Khalifah Latif Cendaka 
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="rs-event-item wow fadeIn" data-wow-delay=".6s" data-wow-duration="1s">
-                                    <div class="rs-event-shape">
-                                        <img src="<?= base_url() ?>images/shape/three-line-shape.svg" alt="">
-                                    </div>
-                                    <div class="rs-event-thumb">
-                                        <a href="event-details.html">
-                                            <img src="<?= base_url() ?>images/event/event-thumb-04.webp" alt="image">
-                                        </a>
-                                    </div>
-                                    <div class="rs-event-content">
-                                        <div class="rs-event-meta">
-                                            <span class="rs-event-meta-item">
-                                                <i class="ri-calendar-line"></i>
-                                                4 Agustus 2025
-                              
-                                            </span>
-                                            <span class="rs-event-meta-item">
-                                                <i class="ri-time-line"></i>
-                                                09:00 AM - 03:40 PM
-                              
-                                            </span>
-                                        </div>
-                                        <h5 class="rs-event-title">
-                                            <a href="event-details.html">Keterampilan Masa Depan & Transformasi Tenaga Kerja</a>
-                                        </h5>
-                                        <span class="rs-event-meta-item">
-                                            <i class="ri-map-2-line"></i>
-                                            Yayasan Khalifah Latif Cendaka 
-                                        </span>
-                                    </div>
-                                </div>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <p class="text-muted w-100 text-center py-4"><?= service('request')->getLocale() == 'id' ? 'Belum ada agenda.' : 'No events scheduled yet.' ?></p>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -1275,48 +1045,42 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
-                            <div class="rs-testimonial-wrapper">
-                                <div class="rs-testimonial-thumb">
-                                    <img src="<?= base_url() ?>images/testimonial/testimonial-thumb-01.webp" alt="image">
-                                    <div class="rs-testimonial-video-btn">
-                                        <div class="rs-tween_max_btn-yes gsap-move-no">
-                                            <a href="https://www.youtube.com/watch?v=go7QYaQR494" class="rs-play-btn popup-video is-medium is-white hover-yellow">
-                                                <i class="ri-play-large-fill"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="rs-testimonial-item">
-                                    <p class="rs-testimonial-desc">“Yayasan Khalifah Latif Cendaka berkomitmen tinggi dalam mencetak generasi penerus bangsa yang cerdas secara intelektual, matang secara emosional, dan taat secara spiritual untuk memimpin peradaban di masa depan.”
-                                </p>
-                                    <div class="rs-testimonial-info">
-                                        <div class="rs-testimonial-avater-wrapper">
-                                            <div class="rs-testimonial-avater-info">
-                                                <h5 class="rs-testimonial-avater-title">Dr. H. Khalifah Latif, M.Pd.</h5>
-                                                <span class="rs-testimonial-avater-designation">Ketua Yayasan</span>
+                            <div class="swiper" data-loop="true" data-speed="1500" data-autoplay="true" data-item="1" data-item-xl="1" data-item-lg="1" data-item-md="1" data-item-sm="1" data-item-xs="1" data-margin="30">
+                                <div class="swiper-wrapper">
+                                    <?php if (!empty($testimonials)): ?>
+                                        <?php foreach ($testimonials as $test): ?>
+                                            <div class="swiper-slide">
+                                                <div class="rs-testimonial-wrapper" style="display: flex; gap: 40px; align-items: center; justify-content: center; width: 100%;">
+                                                    <div class="rs-testimonial-thumb">
+                                                        <img src="<?= (!empty($test->image) && strpos($test->image, 'http') === 0) ? $test->image : base_url($test->image ?? '') ?>" alt="<?= esc($test->name) ?>">
+                                                        <?php if (isset($test->video_url) && $test->video_url): ?>
+                                                            <div class="rs-testimonial-video-btn">
+                                                                <div class="rs-tween_max_btn-yes gsap-move-no">
+                                                                    <a href="<?= esc($test->video_url) ?>" class="rs-play-btn popup-video is-medium is-white hover-yellow">
+                                                                        <i class="ri-play-large-fill"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                    <div class="rs-testimonial-item">
+                                                        <p class="rs-testimonial-desc">“<?= esc(lang_field($test, 'quote')) ?>”</p>
+                                                        <div class="rs-testimonial-info">
+                                                            <div class="rs-testimonial-avater-wrapper">
+                                                                <div class="rs-testimonial-avater-info">
+                                                                    <h5 class="rs-testimonial-avater-title"><?= esc($test->name) ?></h5>
+                                                                    <span class="rs-testimonial-avater-designation"><?= esc(lang_field($test, 'designation')) ?></span>
+                                                                </div>
+                                                                <div class="rs-testimonial-avater-sign">
+                                                                    <img src="<?= base_url() ?>images/testimonial/sign-thumb.svg" alt="image">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="rs-testimonial-avater-sign">
-                                                <img src="<?= base_url() ?>images/testimonial/sign-thumb.svg" alt="image">
-                                            </div>
-                                        </div>
-                                        <div class="rs-testimonial-btn">
-                                            <a class="rs-btn has-icon has-theme-yellow hover-white" href="vice-chancellor.html">
-                                                <span class="btn-text-wrap">
-                                                    <span class="text-default">Baca Selengkapnya</span>
-                                                    <span class="text-hover">Baca Selengkapnya</span>
-                                                </span>
-                                                <span class="icon-box has-rotate">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 15">
-                                                        <path d="M10.5 7.5C10.5 8.32843 9.82843 9 9 9C8.17157 9 7.5 8.32843 7.5 7.5C7.5 6.67157 8.17157 6 9 6C9.82843 6 10.5 6.67157 10.5 7.5Z"></path>
-                                                        <path d="M10.5 13.5C10.5 14.3284 9.82843 15 9 15C8.17157 15 7.5 14.3284 7.5 13.5C7.5 12.6716 8.17157 12 9 12C9.82843 12 10.5 12.6716 10.5 13.5Z"></path>
-                                                        <path d="M3 7.5C3 8.32843 2.32843 9 1.5 9C0.671573 9 0 8.32843 0 7.5C0 6.67157 0.671573 6 1.5 6C2.32843 6 3 6.67157 3 7.5Z"></path>
-                                                        <path d="M18 7.5C18 8.32843 17.3284 9 16.5 9C15.6716 9 15 8.32843 15 7.5C15 6.67157 15.6716 6 16.5 6C17.3284 6 18 6.67157 18 7.5Z"></path>
-                                                        <path d="M10.5 1.5C10.5 2.32843 9.82843 3 9 3C8.17157 3 7.5 2.32843 7.5 1.5C7.5 0.671573 8.17157 0 9 0C9.82843 0 10.5 0.671573 10.5 1.5Z"></path>
-                                                    </svg>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -1450,142 +1214,44 @@
                         <div class="rs-team-wrapper">
                             <div class="swiper" data-clone-slides="false" data-loop="true" data-speed="1500" data-autoplay="true" data-dots-dynamic="false" data-effect="false" data-delay="2000" data-item="3" data-item-xl="2" data-item-lg="2" data-item-md="2" data-item-sm="1" data-item-xs="1" data-margin="30">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="rs-team-item">
-                                            <div class="rs-team-thumb">
-                                                <a href="team-details.html">
-                                                    <img src="<?= base_url() ?>images/team/team-thumb-01.webp" alt="image">
-                                                </a>
-                                                <div class="rs-team-social theme-social has-medium has-bg-white has-theme-yellow">
-                                                    <span class="social-icon">
-                                                        <i class="ri-share-line"></i>
-                                                    </span>
-                                                    <a href="#" target="_blank">
-                                                        <i class="ri-facebook-fill"></i>
-                                                    </a>
-                                                    <a href="#" target="_blank">
-                                                        <i class="ri-twitter-x-fill"></i>
-                                                    </a>
-                                                    <a href="#" target="_blank">
-                                                        <i class="ri-instagram-line"></i>
-                                                    </a>
-                                                    <a href="#" target="_blank">
-                                                        <i class="ri-linkedin-fill"></i>
-                                                    </a>
+                                    <?php if (!empty($teachers)): ?>
+                                        <?php foreach ($teachers as $teacher): ?>
+                                            <div class="swiper-slide">
+                                                <div class="rs-team-item">
+                                                    <div class="rs-team-thumb">
+                                                        <a href="<?= base_url('about') ?>">
+                                                            <img src="<?= (!empty($teacher->photo) && strpos($teacher->photo, 'http') === 0) ? $teacher->photo : base_url($teacher->photo ?? '') ?>" alt="<?= esc($teacher->name) ?>" style="height: 350px; object-fit: cover; width: 100%;">
+                                                        </a>
+                                                        <div class="rs-team-social theme-social has-medium has-bg-white has-theme-yellow">
+                                                            <span class="social-icon">
+                                                                <i class="ri-share-line"></i>
+                                                            </span>
+                                                            <?php if (!empty($teacher->facebook)): ?>
+                                                                <a href="<?= esc($teacher->facebook) ?>" target="_blank"><i class="ri-facebook-fill"></i></a>
+                                                            <?php endif; ?>
+                                                            <?php if (!empty($teacher->twitter)): ?>
+                                                                <a href="<?= esc($teacher->twitter) ?>" target="_blank"><i class="ri-twitter-x-fill"></i></a>
+                                                            <?php endif; ?>
+                                                            <?php if (!empty($teacher->instagram)): ?>
+                                                                <a href="<?= esc($teacher->instagram) ?>" target="_blank"><i class="ri-instagram-line"></i></a>
+                                                            <?php endif; ?>
+                                                            <?php if (!empty($teacher->linkedin)): ?>
+                                                                <a href="<?= esc($teacher->linkedin) ?>" target="_blank"><i class="ri-linkedin-fill"></i></a>
+                                                            <?php endif; ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rs-team-content-wrapper">
+                                                        <div class="rs-team-content-info">
+                                                            <h5 class="rs-team-title">
+                                                                <a href="<?= base_url('about') ?>"><?= esc($teacher->name) ?></a>
+                                                            </h5>
+                                                            <span class="rs-team-designation"><?= esc(lang_field($teacher, 'designation')) ?></span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="rs-team-content-wrapper">
-                                                <div class="rs-team-content-info">
-                                                    <h5 class="rs-team-title">
-                                                        <a href="team-details.html">Savannah Nguyen</a>
-                                                    </h5>
-                                                    <span class="rs-team-designation">Penasihat Akademik</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="rs-team-item">
-                                            <div class="rs-team-thumb">
-                                                <a href="team-details.html">
-                                                    <img src="<?= base_url() ?>images/team/team-thumb-02.webp" alt="image">
-                                                </a>
-                                                <div class="rs-team-social theme-social has-medium has-bg-white has-theme-yellow">
-                                                    <span class="social-icon">
-                                                        <i class="ri-share-line"></i>
-                                                    </span>
-                                                    <a href="#" target="_blank">
-                                                        <i class="ri-facebook-fill"></i>
-                                                    </a>
-                                                    <a href="#" target="_blank">
-                                                        <i class="ri-twitter-x-fill"></i>
-                                                    </a>
-                                                    <a href="#" target="_blank">
-                                                        <i class="ri-instagram-line"></i>
-                                                    </a>
-                                                    <a href="#" target="_blank">
-                                                        <i class="ri-linkedin-fill"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="rs-team-content-wrapper">
-                                                <div class="rs-team-content-info">
-                                                    <h5 class="rs-team-title">
-                                                        <a href="team-details.html">Kathryn Murphy</a>
-                                                    </h5>
-                                                    <span class="rs-team-designation">Asisten Guru</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="rs-team-item">
-                                            <div class="rs-team-thumb">
-                                                <a href="team-details.html">
-                                                    <img src="<?= base_url() ?>images/team/team-thumb-03.webp" alt="image">
-                                                </a>
-                                                <div class="rs-team-social theme-social has-medium has-bg-white has-theme-yellow">
-                                                    <span class="social-icon">
-                                                        <i class="ri-share-line"></i>
-                                                    </span>
-                                                    <a href="#" target="_blank">
-                                                        <i class="ri-facebook-fill"></i>
-                                                    </a>
-                                                    <a href="#" target="_blank">
-                                                        <i class="ri-twitter-x-fill"></i>
-                                                    </a>
-                                                    <a href="#" target="_blank">
-                                                        <i class="ri-instagram-line"></i>
-                                                    </a>
-                                                    <a href="#" target="_blank">
-                                                        <i class="ri-linkedin-fill"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="rs-team-content-wrapper">
-                                                <div class="rs-team-content-info">
-                                                    <h5 class="rs-team-title">
-                                                        <a href="team-details.html">Cameron Williamson</a>
-                                                    </h5>
-                                                    <span class="rs-team-designation">Penelitian & Riset Advisor</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="rs-team-item">
-                                            <div class="rs-team-thumb">
-                                                <a href="team-details.html">
-                                                    <img src="<?= base_url() ?>images/team/team-thumb-04.webp" alt="image">
-                                                </a>
-                                                <div class="rs-team-social theme-social has-medium has-bg-white has-theme-yellow">
-                                                    <span class="social-icon">
-                                                        <i class="ri-share-line"></i>
-                                                    </span>
-                                                    <a href="#" target="_blank">
-                                                        <i class="ri-facebook-fill"></i>
-                                                    </a>
-                                                    <a href="#" target="_blank">
-                                                        <i class="ri-twitter-x-fill"></i>
-                                                    </a>
-                                                    <a href="#" target="_blank">
-                                                        <i class="ri-instagram-line"></i>
-                                                    </a>
-                                                    <a href="#" target="_blank">
-                                                        <i class="ri-linkedin-fill"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="rs-team-content-wrapper">
-                                                <div class="rs-team-content-info">
-                                                    <h5 class="rs-team-title">
-                                                        <a href="team-details.html">Deli Yanky</a>
-                                                    </h5>
-                                                    <span class="rs-team-designation">Guru Senior</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
                                 </div>
                                 <!-- if we need pagination -->
                                 <div class="rs-team-pagination">
@@ -1630,85 +1296,89 @@
                             <div class="col-xl-6 col-lg-6">
                                 <div class="rs-contact-form wow fadeInRight" data-wow-delay=".3s" data-wow-duration="1s">
                                     <div class="section-title-wrapper mb-30">
-                                        <h5 class="form-title rs-split-text-enable split-in-left mb-10">Formulir Pendaftaran
-                                    </h5>
+                                        <h5 class="form-title rs-split-text-enable split-in-left mb-10"><?= lang_trans('admission_form') ?></h5>
                                     </div>
-                                    <form id="contact-form" action="mailer.php" method="POST">
+                                    <?php if (session()->getFlashdata('success')): ?>
+                                        <div class="alert alert-success">
+                                            <?= session()->getFlashdata('success') ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <form id="contact-form" action="<?= base_url('admission/submit') ?>" method="POST">
+                                        <?= csrf_field() ?>
                                         <div class="row rs-gutter-24">
                                             <div class="col-md-6">
                                                 <div class="rs-contact-input-box">
                                                     <div class="rs-contact-input">
-                                                        <input id="name" name="name" type="text" placeholder="Nama Depan">
+                                                        <input id="first_name" name="first_name" type="text" placeholder="<?= lang_trans('first_name') ?>*" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="rs-contact-input-box">
                                                     <div class="rs-contact-input">
-                                                        <input id="name2" name="name" type="text" placeholder="Nama Belakang">
+                                                        <input id="last_name" name="last_name" type="text" placeholder="<?= lang_trans('last_name') ?>">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="rs-contact-input-box">
                                                     <div class="rs-contact-input">
-                                                        <input id="email" name="email" type="email" placeholder="Alamat Email">
+                                                        <input id="email" name="email" type="email" placeholder="Email*" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="rs-contact-input-box">
                                                     <div class="rs-contact-input">
-                                                        <input id="phone" name="phone" type="text" placeholder="Nomor Telepon/WA">
+                                                        <input id="phone" name="phone" type="text" placeholder="<?= lang_trans('phone') ?>*" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="rs-contact-input-box">
                                                     <div class="rs-contact-input">
-                                                        <input id="name3" name="name" type="text" placeholder="Alamat Lengkap">
+                                                        <input id="address" name="address" type="text" placeholder="<?= lang_trans('address') ?>*" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="rs-contact-input-box">
                                                     <div class="rs-contact-input">
-                                                        <input id="name4" name="name" type="text" placeholder="Negara">
+                                                        <input id="country" name="country" type="text" placeholder="<?= lang_trans('country') ?>">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="rs-contact-input-box">
                                                     <div class="rs-contact-input">
-                                                        <input id="name5" name="name" type="text" placeholder="Kota">
+                                                        <input id="city" name="city" type="text" placeholder="<?= lang_trans('city') ?>*" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="rs-contact-input-box">
                                                     <div class="rs-contact-input">
-                                                        <input id="name6" name="name" type="text" placeholder="Kode Pos">
+                                                        <input id="postal_code" name="postal_code" type="text" placeholder="<?= lang_trans('postal_code') ?>*" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="rs-contact-input-box">
                                                     <div class="rs-contact-input">
-                                                        <input id="rs-date" name="date" type="text" placeholder="Pilih Tanggal Lahir*" autocomplete="off">
+                                                        <input id="rs-date" name="birth_date" type="text" placeholder="<?= lang_trans('birth_date') ?>*" autocomplete="off" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="rs-contact-input-box">
                                                     <div class="rs-contact-input">
-                                                        <textarea id="message" name="message" placeholder="Pesan Tambahan (Catatan)*"></textarea>
+                                                        <textarea id="message" name="message" placeholder="<?= lang_trans('message') ?>"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="rs-contact-btn">
-                                                    <button type="submit" class="rs-btn has-theme-yellow hover-white radius-6 w-100">Kirim Pendaftaran
-                                                </button>
+                                                    <button type="submit" class="rs-btn has-theme-yellow hover-white radius-6 w-100"><?= lang_trans('submit_admission') ?></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -1762,142 +1432,45 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="rs-blog-wrapper">
-                                <div class="rs-blog-item blog-card-hover wow fadeIn" data-wow-delay=".3s" data-wow-duration="1s" onclick="window.location='<?= base_url('blog/detail/3') ?>'" style="cursor: pointer;">
-                                    <div class="rs-blog-shape">
-                                        <img src="<?= base_url() ?>images/shape/three-line-shape.svg" alt="">
-                                    </div>
-                                    <div class="rs-blog-thumb">
-                                        <a href="<?= base_url('blog/detail/3') ?>">
-                                            <img src="<?= base_url() ?>images/blog/blog-thumb-01.webp" alt="image">
-                                        </a>
-                                    </div>
-                                    <div class="rs-blog-content">
-                                        <div class="rs-blog-meta">
-                                            <span class="rs-blog-meta-item">
-                                                <i class="ri-price-tag-3-line"></i>
-                                                Penelitian & Riset
-                              
-                                            </span>
-                                            <span class="rs-blog-meta-item">
-                                                <i class="ri-calendar-line"></i>
-                                                9 Desember 2025
-                              
-                                            </span>
-                                        </div>
-                                        <h5 class="rs-blog-title">
-                                            <a href="<?= base_url('blog/detail/3') ?>">Prestasi Peserta Didik Khalifah Latif Cendaka</a>
-                                        </h5>
-                                        <div class=" rs-blog-meta-author">
-                                            <div class="rs-blog-meta-author-thumb">
-                                                <img src="<?= base_url() ?>images/user/user-thumb-01.webp" alt="image">
+                                <?php if (!empty($blogs)): ?>
+                                    <?php foreach ($blogs as $idx => $blog): ?>
+                                        <div class="rs-blog-item blog-card-hover wow fadeIn" data-wow-delay=".<?= 3 + $idx ?>s" data-wow-duration="1s" onclick="window.location='<?= base_url('blog/detail/' . $blog->id) ?>'" style="cursor: pointer;">
+                                            <div class="rs-blog-shape">
+                                                <img src="<?= base_url() ?>images/shape/three-line-shape.svg" alt="">
                                             </div>
-                                            <div class="rs-blog-meta-author-content"><a href="#" onclick="event.stopPropagation();">Nayeem</a>
+                                            <div class="rs-blog-thumb" style="height: 240px; overflow: hidden;">
+                                                <a href="<?= base_url('blog/detail/' . $blog->id) ?>">
+                                                    <img src="<?= (!empty($blog->image) && strpos($blog->image, 'http') === 0) ? $blog->image : base_url($blog->image ?? '') ?>" alt="<?= esc(lang_field($blog, 'title')) ?>" style="width: 100%; height: 100%; object-fit: cover;">
+                                                </a>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="rs-blog-item blog-card-hover wow fadeIn" data-wow-delay=".4s" data-wow-duration="1s" onclick="window.location='<?= base_url('blog/detail/2') ?>'" style="cursor: pointer;">
-                                    <div class="rs-blog-shape">
-                                        <img src="<?= base_url() ?>images/shape/three-line-shape.svg" alt="">
-                                    </div>
-                                    <div class="rs-blog-thumb">
-                                        <a href="<?= base_url('blog/detail/2') ?>">
-                                            <img src="<?= base_url() ?>images/blog/blog-thumb-02.webp" alt="image">
-                                        </a>
-                                    </div>
-                                    <div class="rs-blog-content">
-                                        <div class="rs-blog-meta">
-                                            <span class="rs-blog-meta-item">
-                                                <i class="ri-price-tag-3-line"></i>
-                                                Education
-                              
-                                            </span>
-                                            <span class="rs-blog-meta-item">
-                                                <i class="ri-calendar-line"></i>
-                                                9 Desember 2025
-                              
-                                            </span>
-                                        </div>
-                                        <h5 class="rs-blog-title">
-                                            <a href="<?= base_url('blog/detail/2') ?>">Advancing Knowledge Through Student Penelitian & Riset</a>
-                                        </h5>
-                                        <div class=" rs-blog-meta-author">
-                                            <div class="rs-blog-meta-author-thumb">
-                                                <img src="<?= base_url() ?>images/user/user-thumb-02.webp" alt="image">
-                                            </div>
-                                            <div class="rs-blog-meta-author-content"><a href="#" onclick="event.stopPropagation();">Anntte </a>
+                                            <div class="rs-blog-content">
+                                                <div class="rs-blog-meta">
+                                                    <span class="rs-blog-meta-item">
+                                                        <i class="ri-price-tag-3-line"></i>
+                                                        <?= esc(service('request')->getLocale() == 'id' ? ($blog->category_name_id ?? '') : ($blog->category_name_en ?? '')) ?>
+                                                    </span>
+                                                    <span class="rs-blog-meta-item">
+                                                        <i class="ri-calendar-line"></i>
+                                                        <?= date('d M Y', strtotime($blog->created_at)) ?>
+                                                    </span>
+                                                </div>
+                                                <h5 class="rs-blog-title">
+                                                    <a href="<?= base_url('blog/detail/' . $blog->id) ?>"><?= esc(lang_field($blog, 'title')) ?></a>
+                                                </h5>
+                                                <div class=" rs-blog-meta-author">
+                                                    <div class="rs-blog-meta-author-thumb">
+                                                        <img src="<?= base_url() ?>images/user/user-thumb-01.webp" alt="image">
+                                                    </div>
+                                                    <div class="rs-blog-meta-author-content">
+                                                        <a href="#" onclick="event.stopPropagation();">Admin</a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="rs-blog-item blog-card-hover wow fadeIn" data-wow-delay=".5s" data-wow-duration="1s" onclick="window.location='<?= base_url('blog/detail/2') ?>'" style="cursor: pointer;">
-                                    <div class="rs-blog-shape">
-                                        <img src="<?= base_url() ?>images/shape/three-line-shape.svg" alt="">
-                                    </div>
-                                    <div class="rs-blog-thumb">
-                                        <a href="<?= base_url('blog/detail/2') ?>">
-                                            <img src="<?= base_url() ?>images/blog/blog-thumb-03.webp" alt="image">
-                                        </a>
-                                    </div>
-                                    <div class="rs-blog-content">
-                                        <div class="rs-blog-meta">
-                                            <span class="rs-blog-meta-item">
-                                                <i class="ri-price-tag-3-line"></i>
-                                                Alumni
-                              
-                                            </span>
-                                            <span class="rs-blog-meta-item">
-                                                <i class="ri-calendar-line"></i>
-                                                9 Desember 2025
-                              
-                                            </span>
-                                        </div>
-                                        <h5 class="rs-blog-title">
-                                            <a href="<?= base_url('blog/detail/2') ?>">Masa Depan Sains dan Teknologi di Sekolah</a>
-                                        </h5>
-                                        <div class=" rs-blog-meta-author">
-                                            <div class="rs-blog-meta-author-thumb">
-                                                <img src="<?= base_url() ?>images/user/user-thumb-03.webp" alt="image">
-                                            </div>
-                                            <div class="rs-blog-meta-author-content"><a href="#" onclick="event.stopPropagation();">Hanery Locus </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="rs-blog-item blog-card-hover wow fadeIn" data-wow-delay=".6s" data-wow-duration="1s" onclick="window.location='<?= base_url('blog/detail/4') ?>'" style="cursor: pointer;">
-                                    <div class="rs-blog-shape">
-                                        <img src="<?= base_url() ?>images/shape/three-line-shape.svg" alt="">
-                                    </div>
-                                    <div class="rs-blog-thumb">
-                                        <a href="<?= base_url('blog/detail/4') ?>">
-                                            <img src="<?= base_url() ?>images/blog/blog-thumb-04.webp" alt="image">
-                                        </a>
-                                    </div>
-                                    <div class="rs-blog-content">
-                                        <div class="rs-blog-meta">
-                                            <span class="rs-blog-meta-item">
-                                                <i class="ri-price-tag-3-line"></i>
-                                                Penelitian & Riset
-                              
-                                            </span>
-                                            <span class="rs-blog-meta-item">
-                                                <i class="ri-calendar-line"></i>
-                                                9 Desember 2025
-                              
-                                            </span>
-                                        </div>
-                                        <h5 class="rs-blog-title">
-                                            <a href="<?= base_url('blog/detail/4') ?>">Kisah Sukses Alumni dari Sekolah untuk Dunia</a>
-                                        </h5>
-                                        <div class=" rs-blog-meta-author">
-                                            <div class="rs-blog-meta-author-thumb">
-                                                <img src="<?= base_url() ?>images/user/user-thumb-04.webp" alt="image">
-                                            </div>
-                                            <div class="rs-blog-meta-author-content"><a href="#" onclick="event.stopPropagation();">Albert </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <p class="text-muted w-100 text-center py-4"><?= service('request')->getLocale() == 'id' ? 'Belum ada berita.' : 'No blog posts yet.' ?></p>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -1911,24 +1484,13 @@
                         <div class="col-xl-12">
                             <div class="rs-gallery-wrapper">
                                 <div class="rs-gallery-item-wrapper">
-                                    <div class="rs-gallery-item">
-                                        <img src="<?= base_url() ?>images/gallery/gallery-thumb-01.webp" alt="image">
-                                    </div>
-                                    <div class="rs-gallery-item">
-                                        <img src="<?= base_url() ?>images/gallery/gallery-thumb-02.webp" alt="image">
-                                    </div>
-                                    <div class="rs-gallery-item">
-                                        <img src="<?= base_url() ?>images/gallery/gallery-thumb-03.webp" alt="image">
-                                    </div>
-                                    <div class="rs-gallery-item">
-                                        <img src="<?= base_url() ?>images/gallery/gallery-thumb-04.webp" alt="image">
-                                    </div>
-                                    <div class="rs-gallery-item">
-                                        <img src="<?= base_url() ?>images/gallery/gallery-thumb-05.webp" alt="image">
-                                    </div>
-                                    <div class="rs-gallery-item">
-                                        <img src="<?= base_url() ?>images/gallery/gallery-thumb-06.webp" alt="image">
-                                    </div>
+                                    <?php if (!empty($gallery)): ?>
+                                        <?php foreach ($gallery as $gal): ?>
+                                            <div class="rs-gallery-item" style="height: 250px; overflow: hidden;">
+                                                <img src="<?= (!empty($gal->image) && strpos($gal->image, 'http') === 0) ? $gal->image : base_url($gal->image ?? '') ?>" alt="<?= esc(lang_field($gal, 'title')) ?>" style="width: 100%; height: 100%; object-fit: cover;">
+                                            </div>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="rs-gallery-btn">
                                     <a class="rs-btn has-icon has-theme-yellow hover-blue" href="campus-life.html">
