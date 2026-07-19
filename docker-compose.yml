@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: yayasan
+    restart: unless-stopped
+    ports:
+      - "9012:80"
+    volumes:
+      - ./app:/var/www/html/app
+      - ./public:/var/www/html/public
+      - ./writable:/var/www/html/writable
+    env_file:
+      - .env
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
